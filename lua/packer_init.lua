@@ -5,7 +5,7 @@ return require('packer').startup(function(use)
   use 'kyazdani42/nvim-tree.lua' -- Tree
   use 'nvim-lualine/lualine.nvim' -- Status bar
   use { 'akinsho/bufferline.nvim', tag = "v2.*" } -- Buffer bar
-  use 'nanotech/jellybeans.vim' -- Theme
+  use 'shaunsingh/nord.nvim' -- Theme
   -- lsp
   use 'williamboman/nvim-lsp-installer'
   use 'neovim/nvim-lspconfig'

@@ -13,4 +13,4 @@ require('plugins.null-ls')
 require('plugins.nvim-colorizer')
 require('plugins.comment')
 require('plugins.dashboard')
-vim.cmd [[colorscheme jellybeans]]
+vim.cmd [[colorscheme nord]]
