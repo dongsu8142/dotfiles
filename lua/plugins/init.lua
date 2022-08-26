@@ -22,7 +22,10 @@ return require('packer').startup(function(use)
 
   -- lsp
   use 'williamboman/nvim-lsp-installer'
-  use 'neovim/nvim-lspconfig'
+  use {
+    'neovim/nvim-lspconfig',
+    config = "require('plugins.lsp')"
+  }
 
   -- cmp
   use 'hrsh7th/cmp-nvim-lsp'
