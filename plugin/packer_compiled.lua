@@ -129,6 +129,12 @@ _G.packer_plugins = {
     path = "/home/hands8142/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
     url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
+  ["nvim-autopairs"] = {
+    config = { "require('nvim-autopairs').setup()" },
+    loaded = true,
+    path = "/home/hands8142/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
+    url = "https://github.com/windwp/nvim-autopairs"
+  },
   ["nvim-cmp"] = {
     config = { "require('plugins.cmp')" },
     loaded = true,
@@ -213,14 +219,18 @@ time([[Config for nvim-tree.lua]], false)
 time([[Config for nord.nvim]], true)
 vim.cmd [[colorscheme nord]]
 time([[Config for nord.nvim]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
-require('plugins.lualine')
-time([[Config for lualine.nvim]], false)
 -- Config for: nvim-colorizer.lua
 time([[Config for nvim-colorizer.lua]], true)
 require('plugins.colorizer')
 time([[Config for nvim-colorizer.lua]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+require('plugins.lualine')
+time([[Config for lualine.nvim]], false)
+-- Config for: null-ls.nvim
+time([[Config for null-ls.nvim]], true)
+require('plugins.null-ls')
+time([[Config for null-ls.nvim]], false)
 -- Config for: bufferline.nvim
 time([[Config for bufferline.nvim]], true)
 require('plugins.bufferline')
@@ -229,10 +239,10 @@ time([[Config for bufferline.nvim]], false)
 time([[Config for nvim-lspconfig]], true)
 require('plugins.lsp')
 time([[Config for nvim-lspconfig]], false)
--- Config for: null-ls.nvim
-time([[Config for null-ls.nvim]], true)
-require('plugins.null-ls')
-time([[Config for null-ls.nvim]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+require('nvim-autopairs').setup()
+time([[Config for nvim-autopairs]], false)
 -- Config for: dashboard-nvim
 time([[Config for dashboard-nvim]], true)
 require('plugins.dashboard')
