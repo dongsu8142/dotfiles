@@ -47,7 +47,10 @@ return require('packer').startup(function(use)
     'norcalli/nvim-colorizer.lua',
     config = "require('plugins.colorizer')"
   }
-  use 'numToStr/Comment.nvim'
+  use {
+    'numToStr/Comment.nvim',
+    config = "require('Comment').setup()"
+  }
   use {
     'glepnir/dashboard-nvim',
     config = "require('plugins.dashboard')"
