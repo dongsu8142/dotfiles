@@ -1,7 +1,9 @@
 local servers = { 'tsserver', 'html' }
 local lspconfig = require("lspconfig")
 
-require('nvim-lsp-installer').setup({
+require('mason').setup()
+
+require('mason-lspconfig').setup({
   ensure_installed = servers
 })
 

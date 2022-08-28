@@ -19,7 +19,8 @@ return require('packer').startup(function(use)
     'shaunsingh/nord.nvim',
     config = "vim.cmd [[colorscheme nord]]"
   }
-  use 'williamboman/nvim-lsp-installer'
+  use 'williamboman/mason.nvim'
+  use 'williamboman/mason-lspconfig.nvim'
   use {
     'neovim/nvim-lspconfig',
     config = "require('plugins.lsp')"
