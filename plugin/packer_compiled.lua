@@ -118,7 +118,7 @@ _G.packer_plugins = {
     url = "https://github.com/glepnir/dashboard-nvim"
   },
   ["gitsigns.nvim"] = {
-    config = { "require('gitsigns').setup()" },
+    config = { "require('plugins.gitsigns')" },
     loaded = true,
     path = "/home/hands8142/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
@@ -254,7 +254,7 @@ require('plugins.lualine')
 time([[Config for lualine.nvim]], false)
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)
-require('gitsigns').setup()
+require('plugins.gitsigns')
 time([[Config for gitsigns.nvim]], false)
 -- Config for: bufferline.nvim
 time([[Config for bufferline.nvim]], true)
