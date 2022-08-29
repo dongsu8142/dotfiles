@@ -47,7 +47,7 @@ return require('packer').startup(function(use)
   use { 'nvim-telescope/telescope.nvim', tag = '0.1.0' }
   use {
     'norcalli/nvim-colorizer.lua',
-    config = "require('plugins.colorizer')"
+    config = "require('colorizer').setup()"
   }
   use {
     'numToStr/Comment.nvim',
