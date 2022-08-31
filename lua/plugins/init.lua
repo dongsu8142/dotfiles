@@ -75,4 +75,5 @@ return require('packer').startup(function(use)
     'antoinemadec/FixCursorHold.nvim',
     config = 'vim.g.cursorhold_updatetime = 1000'
   }
+  use 'andweeb/presence.nvim'
 end)
