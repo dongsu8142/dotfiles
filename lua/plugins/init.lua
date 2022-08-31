@@ -1,4 +1,4 @@
-return require('packer').startup(function(use) 
+return require('packer').startup({function(use) 
   use 'wbthomason/packer.nvim'
   use 'nvim-lua/plenary.nvim'
   use 'kyazdani42/nvim-web-devicons'
@@ -76,4 +76,11 @@ return require('packer').startup(function(use)
     config = 'vim.g.cursorhold_updatetime = 1000'
   }
   use 'andweeb/presence.nvim'
-end)
+end,
+config = {
+  display = {
+    open_fn = function()
+      return require('packer.util').float({ border = 'single' })
+    end
+  }
+}})
