@@ -16,7 +16,7 @@ local on_attach = function(client, bufnr)
       buffer = bufnr,
       group = augroup,
     })
-    vim.api.nvim_create_autocmd('CursorMoved', {
+    vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
       callback = vim.lsp.buf.clear_references,
       buffer = bufnr,
       group = augroup
