@@ -1,6 +1,7 @@
 local servers = { 'tsserver', 'html', 'jsonls' }
 local lspconfig = require("lspconfig")
-local augroup = vim.api.nvim_create_augroup('LspDocumentHighlight', { clear = true })
+local highlight = vim.api.nvim_create_augroup('LspDocumentHighlight', { clear = true })
+local hover = vim.api.nvim_create_augroup('LspHover', { clear = true })
 
 require('mason').setup()
 
@@ -10,16 +11,24 @@ require('mason-lspconfig').setup({
 
 local on_attach = function(client, bufnr)
   if client.supports_method('textDocument/documentHighlight') then
-    vim.api.nvim_clear_autocmds({ buffer = bufnr, group = augroup })
+    vim.api.nvim_clear_autocmds({ buffer = bufnr, group = highlight })
     vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
-      callback = function() vim.lsp.buf.document_highlight() end,
+      callback = vim.lsp.buf.document_highlight,
       buffer = bufnr,
-      group = augroup,
+      group = highlight
     })
     vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
       callback = vim.lsp.buf.clear_references,
       buffer = bufnr,
-      group = augroup
+      group = highlight
+    })
+  end
+  if client.supports_method('textDocument/hover') then
+    vim.api.nvim_clear_autocmds({ buffer = bufnr, group = hover })
+    vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+      callback = vim.lsp.buf.hover,
+      buffer = bufnr,
+      group = hover
     })
   end
 end
