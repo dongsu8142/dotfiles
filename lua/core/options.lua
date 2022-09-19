@@ -11,3 +11,4 @@ opt.clipboard = 'unnamedplus'
 opt.mouse='a'
 opt.encoding = 'UTF-8'
 opt.termguicolors = true
+opt.updatetime=1000

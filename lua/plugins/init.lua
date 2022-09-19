@@ -71,10 +71,6 @@ return require('packer').startup({function(use)
     'lukas-reineke/indent-blankline.nvim',
     config = "require('indent_blankline').setup()"
   }
-  use {
-    'antoinemadec/FixCursorHold.nvim',
-    config = 'vim.g.cursorhold_updatetime = 1000'
-  }
   use 'andweeb/presence.nvim'
 end,
 config = {
