@@ -44,7 +44,7 @@ return require('packer').startup({function(use)
     'jose-elias-alvarez/null-ls.nvim',
     config = "require('plugins.null-ls')"
   }
-  use { 'nvim-telescope/telescope.nvim', tag = '0.1.0' }
+  use { 'nvim-telescope/telescope.nvim', tag = '0.1.1' }
   use {
     'norcalli/nvim-colorizer.lua',
     config = "require('colorizer').setup()"
