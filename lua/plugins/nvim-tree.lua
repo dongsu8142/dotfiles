@@ -1,1 +1,1 @@
-require('nvim-tree').setup({ open_on_setup_file = true, filters = { custom = { '.git' } } })
+require('nvim-tree').setup({ filters = { custom = { '.git' } } })

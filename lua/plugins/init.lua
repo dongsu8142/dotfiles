@@ -12,7 +12,7 @@ return require('packer').startup({function(use)
   }
   use {
     'akinsho/bufferline.nvim',
-    tag = "v2.*",
+    tag = "v3.*",
     config = "require('plugins.bufferline')"
   }
   use {
@@ -52,10 +52,6 @@ return require('packer').startup({function(use)
   use {
     'numToStr/Comment.nvim',
     config = "require('Comment').setup()"
-  }
-  use {
-    'glepnir/dashboard-nvim',
-    config = "require('plugins.dashboard')"
   }
   use 'windwp/nvim-ts-autotag'
   use 'p00f/nvim-ts-rainbow'
