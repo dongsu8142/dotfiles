@@ -1,3 +1,10 @@
+#exa
+if type -q exa
+  alias ls "exa --icons"
+  alias ll "exa -l -g --icons"
+  alias lla "ll -a"
+end
+
 # volta
 set -gx VOLTA_HOME "$HOME/.volta"
 set -gx PATH "$VOLTA_HOME/bin" $PATH
