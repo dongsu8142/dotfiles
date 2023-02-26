@@ -54,7 +54,7 @@ return require('packer').startup({function(use)
     config = "require('Comment').setup()"
   }
   use 'windwp/nvim-ts-autotag'
-  use 'p00f/nvim-ts-rainbow'
+  use 'mrjones2014/nvim-ts-rainbow'
   use {
     'windwp/nvim-autopairs',
     config = "require('nvim-autopairs').setup()"
