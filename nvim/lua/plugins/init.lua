@@ -68,6 +68,7 @@ return require('packer').startup({function(use)
     config = "require('indent_blankline').setup()"
   }
   use 'andweeb/presence.nvim'
+  use 'wakatime/vim-wakatime'
 end,
 config = {
   display = {
