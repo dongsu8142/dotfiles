@@ -1,3 +1,6 @@
+#remove welcome message
+set -g fish_greeting
+
 #exa
 if type -q exa
   alias ls "exa --icons"
