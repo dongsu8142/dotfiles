@@ -1,5 +1,5 @@
 {
-  "height": 20, // Waybar height (to be removed for auto height)
+  "height": 24, // Waybar height (to be removed for auto height)
   "margin-top": 3,
   "margin-left": 10,
   "margin-bottom": 0,
@@ -29,8 +29,9 @@
     "spacing": 10
   },
   "clock": {
+    "timezone": "Asia/Seoul",
     "format": "<span color='#bf616a'> </span>{:%I:%M %p}",
-    "format-alt": "<span color='#bf616a'> </span>{:%a %b %d}",
+    "format-alt": "<span color='#bf616a'> </span>{:%b %d}일",
     "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>"
   },
 
@@ -71,8 +72,7 @@
       "portable": "",
       "car": "",
       "default": ["", "", ""]
-    },
-    "on-click": "bluetoothctl connect FC:58:FA:42:3D:D8"
+    }
   },
 
   "bluetooth": {

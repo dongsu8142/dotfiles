@@ -88,24 +88,24 @@ window#waybar.hidden {
   color: #e5e5e5;
   /* color: #bf616a; */
   border-radius: 20px;
-  background-color: #1e1e1e;
+  background-color: #312c2e;
 }
 
 #window,
 #workspaces {
   border-radius: 20px;
   padding: 0px 10px;
-  background-color: #1e1e1e;
+  /* background-color: #1e1e1e; */
 }
 
 #cpu {
   color: #fb958b;
-  background-color: #1e1e1e;
+  /* background-color: #1e1e1e; */
 }
 
 #memory {
   color: #ebcb8b;
-  background-color: #1e1e1e;
+  /* background-color: #1e1e1e; */
 }
 
 #custom-power-menu {
