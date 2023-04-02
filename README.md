@@ -8,3 +8,12 @@ ttf-fantasque-nerd noto-fonts noto-fonts-emoji ttf-comfortaa  \
 ttf-jetbrains-mono-nerd ttf-icomoon-feather ttf-iosevka-nerd  \
 ttf-firacode-nerd polkit-gnome dunst papirus-icon-theme
 ```
+
+### disable wifi powersave
+
+/etc/NetworkManager/conf.d/wifi-powersave.conf:
+
+```conf
+[connection]
+wifi.powersave = 2
+```
