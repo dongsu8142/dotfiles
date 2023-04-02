@@ -69,6 +69,7 @@ return require('packer').startup({function(use)
   }
   use 'andweeb/presence.nvim'
   use 'wakatime/vim-wakatime'
+  use 'sindrets/diffview.nvim'
 end,
 config = {
   display = {

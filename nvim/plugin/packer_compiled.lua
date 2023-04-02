@@ -116,6 +116,11 @@ _G.packer_plugins = {
     path = "/home/hands8142/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["diffview.nvim"] = {
+    loaded = true,
+    path = "/home/hands8142/.local/share/nvim/site/pack/packer/start/diffview.nvim",
+    url = "https://github.com/sindrets/diffview.nvim"
+  },
   ["gitsigns.nvim"] = {
     config = { "require('plugins.gitsigns')" },
     loaded = true,
@@ -239,6 +244,10 @@ time([[Defining packer_plugins]], false)
 time([[Config for nvim-colorizer.lua]], true)
 require('colorizer').setup()
 time([[Config for nvim-colorizer.lua]], false)
+-- Config for: bufferline.nvim
+time([[Config for bufferline.nvim]], true)
+require('plugins.bufferline')
+time([[Config for bufferline.nvim]], false)
 -- Config for: nvim-lspconfig
 time([[Config for nvim-lspconfig]], true)
 require('plugins.lsp')
@@ -275,18 +284,14 @@ time([[Config for nvim-autopairs]], false)
 time([[Config for lualine.nvim]], true)
 require('plugins.lualine')
 time([[Config for lualine.nvim]], false)
--- Config for: bufferline.nvim
-time([[Config for bufferline.nvim]], true)
-require('plugins.bufferline')
-time([[Config for bufferline.nvim]], false)
--- Config for: nvim-cmp
-time([[Config for nvim-cmp]], true)
-require('plugins.cmp')
-time([[Config for nvim-cmp]], false)
 -- Config for: Comment.nvim
 time([[Config for Comment.nvim]], true)
 require('Comment').setup()
 time([[Config for Comment.nvim]], false)
+-- Config for: nvim-cmp
+time([[Config for nvim-cmp]], true)
+require('plugins.cmp')
+time([[Config for nvim-cmp]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
