@@ -95,7 +95,7 @@ window#waybar.hidden {
 #workspaces {
   border-radius: 20px;
   padding: 0px 10px;
-  /* background-color: #1e1e1e; */
+  background-color: #1e1e1e;
 }
 
 #cpu {
