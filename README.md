@@ -6,7 +6,8 @@ brightnessctl pamixer otf-sora adobe-source-code-pro-fonts    \
 ttf-nerd-fonts-symbols-common otf-firamono-nerd inter-font    \
 ttf-fantasque-nerd noto-fonts noto-fonts-emoji ttf-comfortaa  \
 ttf-jetbrains-mono-nerd ttf-icomoon-feather ttf-iosevka-nerd  \
-ttf-firacode-nerd polkit-gnome dunst papirus-icon-theme
+ttf-firacode-nerd polkit-gnome dunst papirus-icon-theme bluez \
+bluez-utils
 ```
 
 ### disable wifi powersave
