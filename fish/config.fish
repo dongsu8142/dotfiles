@@ -1,7 +1,7 @@
-#remove welcome message
+# remove welcome message
 set -g fish_greeting
 
-#exa
+# exa
 if type -q exa
   alias ls "exa --icons"
   alias ll "exa -l -g --icons"
@@ -17,3 +17,6 @@ command -qv nvim && alias vim nvim
 
 # rust
 set -gx PATH "$HOME/.cargo/bin" $PATH
+
+# starship
+starship init fish | source
