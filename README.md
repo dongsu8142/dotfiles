@@ -10,9 +10,15 @@ ttf-firacode-nerd polkit-gnome dunst papirus-icon-theme bluez \
 bluez-utils starship kime-bin neovim
 ```
 
-### disable auto suspend
+### Disable sleep on laptop lid close
 
-### disable wifi powersave
+/etc/systemd/logind.conf:
+
+```conf
+HandleLidSwitch=ignore
+```
+
+### Disable wifi powersave
 
 /etc/NetworkManager/conf.d/wifi-powersave.conf:
 
