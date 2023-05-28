@@ -1,88 +1,116 @@
-local status, packer = pcall(require, "packer")
-if (not status) then
-  print("Packer is not installed")
-  return
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
-vim.cmd [[packadd packer.nvim]]
 
-return packer.startup({function(use) 
-  use 'wbthomason/packer.nvim'
-  use 'nvim-lua/plenary.nvim'
-  use 'kyazdani42/nvim-web-devicons'
-  use {
-    'kyazdani42/nvim-tree.lua',
-    config = "require('plugins.nvim-tree')"
-  }
-  use {
+local plugins = {
+  'nvim-lua/plenary.nvim',
+  'nvim-tree/nvim-web-devicons',
+  {
+    'nvim-tree/nvim-tree.lua',
+    config = function()
+      require('plugins.nvim-tree')
+    end,
+  },
+  {
     'nvim-lualine/lualine.nvim',
-    config = "require('plugins.lualine')"
-  }
-  use {
+    config = function()
+      require('plugins.lualine')
+    end,
+  },
+  {
     'akinsho/bufferline.nvim',
-    tag = "*",
-    config = "require('plugins.bufferline')"
-  }
-  use {
+    version = "*",
+    config = function()
+      require('plugins.bufferline')
+    end,
+  },
+  {
     'shaunsingh/nord.nvim',
-    config = "require('plugins.nord')"
-  }
-  use {
+    config = function()
+      require('plugins.nord')
+    end,
+  },
+  {
     'williamboman/mason.nvim',
-    run = ':MasonUpdate'
-  }
-  use 'williamboman/mason-lspconfig.nvim'
-  use {
+    build = ":MasonUpdate",
+  },
+  'williamboman/mason-lspconfig.nvim',
+  {
     'neovim/nvim-lspconfig',
-    config = "require('plugins.lsp')"
-  }
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
-  use {
+    config = function()
+      require('plugins.lsp')
+    end,
+  },
+  'hrsh7th/cmp-nvim-lsp',
+  'hrsh7th/cmp-buffer',
+  'hrsh7th/cmp-path',
+  'hrsh7th/cmp-cmdline',
+  {
     'hrsh7th/nvim-cmp',
-    config = "require('plugins.cmp')"
-  }
-  use 'L3MON4D3/LuaSnip'
-  use 'saadparwaiz1/cmp_luasnip'
-  use {
+    config = function()
+      require('plugins.cmp')
+    end,
+  },
+  'L3MON4D3/LuaSnip',
+  'saadparwaiz1/cmp_luasnip',
+  {
     'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',
-    config = "require('plugins.treesitter')"
-  }
-  use {
+    build = ':TSUpdate',
+    config = function()
+      require('plugins.treesitter')
+    end,
+  },
+  {
     'jose-elias-alvarez/null-ls.nvim',
-    config = "require('plugins.null-ls')"
-  }
-  use {
+    config = function()
+      require('plugins.null-ls')
+    end,
+  },
+  {
     'norcalli/nvim-colorizer.lua',
-    config = "require('colorizer').setup()"
-  }
-  use {
+    config = function()
+      require('colorizer').setup()
+    end,
+  },
+  {
     'numToStr/Comment.nvim',
-    config = "require('Comment').setup()"
-  }
-  use 'windwp/nvim-ts-autotag'
-  use 'mrjones2014/nvim-ts-rainbow'
-  use {
+    config = function()
+      require('Comment').setup()
+    end,
+  },
+  'windwp/nvim-ts-autotag',
+  'mrjones2014/nvim-ts-rainbow',
+  {
     'windwp/nvim-autopairs',
-    config = "require('nvim-autopairs').setup()"
-  }
-  use {
+    config = function()
+      require('nvim-autopairs').setup()
+    end,
+  },
+  {
     'lewis6991/gitsigns.nvim',
-    config = "require('plugins.gitsigns')"
-  }
-  use {
+    config = function()
+      require('plugins.gitsigns')
+    end,
+  },
+  {
     'lukas-reineke/indent-blankline.nvim',
-    config = "require('indent_blankline').setup()"
-  }
-  use 'sindrets/diffview.nvim'
-end,
-config = {
-  display = {
-    open_fn = function()
-      return require('packer.util').float({ border = 'single' })
-    end
-  }
-}})
+    config = function()
+      require('indent_blankline').setup()
+    end,
+  },
+  'sindrets/diffview.nvim'
+}
+
+local opts = {}
+
+require('lazy').setup(plugins, opts)

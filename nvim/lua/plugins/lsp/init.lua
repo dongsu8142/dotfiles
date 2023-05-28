@@ -1,4 +1,4 @@
-local servers = { 'tsserver', 'html', 'jsonls', 'cssls', 'rust_analyzer', 'clangd' }
+local servers = { 'tsserver', 'html', 'jsonls', 'cssls', 'clangd' }
 local lspconfig = require("lspconfig")
 local highlight = vim.api.nvim_create_augroup('LspDocumentHighlight', { clear = true })
 local hover = vim.api.nvim_create_augroup('LspHover', { clear = true })
