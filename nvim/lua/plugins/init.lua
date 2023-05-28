@@ -1,4 +1,12 @@
-return require('packer').startup({function(use) 
+local status, packer = pcall(require, "packer")
+if (not status) then
+  print("Packer is not installed")
+  return
+end
+
+vim.cmd [[packadd packer.nvim]]
+
+return packer.startup({function(use) 
   use 'wbthomason/packer.nvim'
   use 'nvim-lua/plenary.nvim'
   use 'kyazdani42/nvim-web-devicons'
@@ -12,14 +20,17 @@ return require('packer').startup({function(use)
   }
   use {
     'akinsho/bufferline.nvim',
-    tag = "v3.*",
+    tag = "*",
     config = "require('plugins.bufferline')"
   }
   use {
     'shaunsingh/nord.nvim',
-    config = "vim.cmd [[colorscheme nord]]"
+    config = "require('plugins.nord')"
   }
-  use 'williamboman/mason.nvim'
+  use {
+    'williamboman/mason.nvim',
+    run = ':MasonUpdate'
+  }
   use 'williamboman/mason-lspconfig.nvim'
   use {
     'neovim/nvim-lspconfig',
@@ -44,7 +55,6 @@ return require('packer').startup({function(use)
     'jose-elias-alvarez/null-ls.nvim',
     config = "require('plugins.null-ls')"
   }
-  use { 'nvim-telescope/telescope.nvim', tag = '0.1.1' }
   use {
     'norcalli/nvim-colorizer.lua',
     config = "require('colorizer').setup()"
@@ -67,8 +77,6 @@ return require('packer').startup({function(use)
     'lukas-reineke/indent-blankline.nvim',
     config = "require('indent_blankline').setup()"
   }
-  use 'andweeb/presence.nvim'
-  use 'wakatime/vim-wakatime'
   use 'sindrets/diffview.nvim'
 end,
 config = {
