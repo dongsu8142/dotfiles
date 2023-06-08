@@ -1,4 +1,4 @@
-local servers = { 'tsserver', 'html', 'jsonls', 'cssls', 'clangd' }
+local servers = { 'tsserver', 'html', 'jsonls', 'cssls', 'clangd', 'rust_analyzer' }
 local lspconfig = require("lspconfig")
 local highlight = vim.api.nvim_create_augroup('LspDocumentHighlight', { clear = true })
 local hover = vim.api.nvim_create_augroup('LspHover', { clear = true })
@@ -33,7 +33,7 @@ local on_attach = function(client, bufnr)
   end
 end
 
-for _, server in pairs(servers) do
+for _, server in ipairs(servers) do
   local capabilities = require('cmp_nvim_lsp').default_capabilities()
   capabilities.textDocument.completion.completionItem.snippetSupport = true
   local opts = {

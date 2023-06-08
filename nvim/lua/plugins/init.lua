@@ -108,7 +108,8 @@ local plugins = {
       require('indent_blankline').setup()
     end,
   },
-  'sindrets/diffview.nvim'
+  'sindrets/diffview.nvim',
+  'b0o/schemastore.nvim'
 }
 
 local opts = {}
