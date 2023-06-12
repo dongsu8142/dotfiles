@@ -12,24 +12,25 @@
   outputs = { self, nixpkgs, home-manager }:
     let
       system = "x86_64-linux";
+      user = "hands8142";
       pkgs = import nixpkgs {
         inherit system;
-	config.allowUnfree = true;
+	      config.allowUnfree = true;
       };
       lib = nixpkgs.lib;
     in {
       nixosConfigurations = {
         home-linux = lib.nixosSystem {
-	  inherit system;
-	  modules = [
-	    ./system/configuration.nix
-	    home-manager.nixosModules.home-manager {
-	      home-manager.useGlobalPkgs = true;
-	      home-manager.useUserPackages = true;
-	      home-manager.users.hands8142 = import ./users/hands8142/home.nix;
-	    }
-	  ];
-	};
+	        inherit system;
+	        modules = [
+	          ./system/configuration.nix
+	          home-manager.nixosModules.home-manager {
+	            home-manager.useGlobalPkgs = true;
+	            home-manager.useUserPackages = true;
+	            home-manager.users.${user} = import ./users/hands8142/home.nix;
+	          }
+	        ];
+	      };
       };
     };
 }
