@@ -1,6 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
+  imports = [ ../../modules ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "hands8142";
@@ -57,12 +58,5 @@
     enable = true;
     userName = "dongsu8142";
     userEmail = "dongsu8142@naver.com";
-  };
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-    # extraConfig = pkgs.lib.fileContents ../../nvim/init.lua;
   };
 }
