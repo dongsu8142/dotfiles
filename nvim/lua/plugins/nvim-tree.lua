@@ -1,1 +1,1 @@
-require('nvim-tree').setup({ filters = { custom = { '.git' } } })
+require('nvim-tree').setup({ filters = { dotfiles = true } })

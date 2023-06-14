@@ -1,11 +1,19 @@
 { lib, config, pkgs, ... }:
 
+with lib;
+
+let
+  cfg = config.modules.nvim;
+in
+
 {
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-    # extraConfig = pkgs.lib.fileContents ../../nvim/init.lua;
+  options.modules.nvim = { enable = mkEnableOption "nvim"; };
+  config = mkIf cfg.enable {
+    programs.neovim = {
+      enable = true;
+      defaultEditor = true;
+      viAlias = true;
+      vimAlias = true;
+    };
   };
 }

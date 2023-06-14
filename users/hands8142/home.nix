@@ -12,9 +12,8 @@
     ];
   };
 
-  programs.git = {
-    enable = true;
-    userName = "dongsu8142";
-    userEmail = "dongsu8142@naver.com";
+  modules = {
+    nvim.enable = true;
+    git.enable = true;
   };
 }
