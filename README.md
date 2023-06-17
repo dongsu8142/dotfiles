@@ -23,8 +23,8 @@ parted /dev/sda -- mkpart primary 512MiB 100%
 parted /dev/sda -- mkpart ESP fat32 1MiB 512MiB
 parted /dev/sda -- set 2 esp on
 
-mkfs.fat -F 32 -n boot /dev/sda1
-mkfs.ext4 -L nixos /dev/sda2
+mkfs.fat -F 32 -n boot /dev/sda2
+mkfs.ext4 -L nixos /dev/sda1
 
 mount /dev/disk/by-label/nixos /mnt
 mkdir -p /mnt/boot
@@ -33,6 +33,8 @@ mount /dev/disk/by-label/boot /mnt/boot
 nix-shell -p git nixFlakes
 
 git clone https://github.com/dongsu8142/dotfiles
+
+cd dotfiles
 
 nixos-install --root /mnt --impure --flake .#home-linux
 ```
