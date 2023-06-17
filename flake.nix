@@ -18,12 +18,11 @@
         config.allowUnfree = true;
       };
       lib = nixpkgs.lib;
-    in {
-      nixosConfigurations = {
-        vm-server = lib.nixosSystem {
+      mkSystem = hostname:
+        lib.nixosSystem {
           inherit system;
           modules = [
-            ./hosts/vm-server/configuration.nix
+            ./hosts/${hostname}/configuration.nix
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
@@ -31,6 +30,10 @@
             }
           ];
         };
+    in {
+      nixosConfigurations = {
+        vm-server = mkSystem "vm-server";
+        laptop-server = mkSystem "laptop-server";
       };
     };
 }
