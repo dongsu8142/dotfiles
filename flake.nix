@@ -18,7 +18,7 @@
         config.allowUnfree = true;
       };
       lib = nixpkgs.lib;
-      mkSystem = hostname:
+      mkSystem = hostname: env:
         lib.nixosSystem {
           inherit system;
           modules = [
@@ -26,14 +26,14 @@
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.${user} = import ./users/${user}/home.nix;
+              home-manager.users.${user} = import ./users/${user}/${env}/home.nix;
             }
           ];
         };
     in {
       nixosConfigurations = {
-        vm-server = mkSystem "vm-server";
-        server = mkSystem "server";
+        vm-server = mkSystem "vm-server" "server";
+        server = mkSystem "server" "server";
       };
     };
 }
