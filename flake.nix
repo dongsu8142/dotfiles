@@ -33,7 +33,7 @@
     in {
       nixosConfigurations = {
         vm-server = mkSystem "vm-server";
-        laptop-server = mkSystem "laptop-server";
+        server = mkSystem "server";
       };
     };
 }
