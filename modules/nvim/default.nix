@@ -15,6 +15,7 @@ in
     home.packages = with pkgs; [
       nodePackages.typescript-language-server # tsserver
       nodePackages.vscode-json-languageserver # jsonls
+      rust-analyzer # rust
     ];
 
     programs.neovim = {
