@@ -18,22 +18,22 @@
         config.allowUnfree = true;
       };
       lib = nixpkgs.lib;
-      mkSystem = hostname: env:
+      mkSystem = hostname:
         lib.nixosSystem {
           inherit system;
           modules = [
-            ./machines/${hostname}.nix
+            ./hosts/${hostname}.nix
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.${user} = import ./users/${user}/${env}/home.nix;
+              home-manager.users.${user} = import ./users/${user}/${hostname}/home.nix;
             }
           ];
         };
     in {
       nixosConfigurations = {
-        vm-server = mkSystem "vm-server" "server";
-        laptop-server = mkSystem "laptop-server" "server";
+        server = mkSystem "server";
+	desktop = mkSystem "desktop";
       };
     };
 }

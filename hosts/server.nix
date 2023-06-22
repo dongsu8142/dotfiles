@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [];
+  imports = [../hardware/laptop.nix];
 
   boot = {
     loader = {
@@ -15,6 +15,7 @@
     # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
     networkmanager = {
       enable = true;
+      wifi.powersave = false;
     };
     firewall.enable = true;
   };
@@ -63,6 +64,9 @@
 
   services = {
     openssh.enable = true;
+    logind = {
+      lidSwitch = "ignore";
+    };
   };
 
   virtualisation = {
