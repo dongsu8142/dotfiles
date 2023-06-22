@@ -22,7 +22,7 @@
         lib.nixosSystem {
           inherit system;
           modules = [
-            ./hosts/${hostname}/configuration.nix
+            ./machines/${hostname}.nix
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
@@ -33,7 +33,7 @@
     in {
       nixosConfigurations = {
         vm-server = mkSystem "vm-server" "server";
-        server = mkSystem "server" "server";
+        laptop-server = mkSystem "laptop-server" "server";
       };
     };
 }
