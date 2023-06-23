@@ -33,7 +33,7 @@
     in {
       nixosConfigurations = {
         server = mkSystem "server";
-	desktop = mkSystem "desktop";
+        desktop = mkSystem "desktop";
       };
     };
 }
