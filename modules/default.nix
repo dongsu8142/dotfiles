@@ -3,6 +3,7 @@
 {
   imports = [
     ./hyprland
+    ./eww
     ./nvim
     ./git
   ];
