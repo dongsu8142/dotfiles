@@ -8,6 +8,7 @@
     stateVersion = "23.11";
     packages = with pkgs; [
       firefox
+      kitty
       nodejs_20
       ffmpeg_6
       gcc13
