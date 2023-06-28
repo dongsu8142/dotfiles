@@ -19,7 +19,6 @@
 
   modules = {
     hyprland.enable = true;
-    eww.enable = true;
     nvim.enable = true;
     git.enable = true;
   };
