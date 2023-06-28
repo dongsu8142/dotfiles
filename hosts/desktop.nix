@@ -36,7 +36,15 @@
   #   useXkbConfig = true; # use xkbOptions in tty.
   # };
 
-  services.xserver.enable = true;
+  security.rtkit.enable = true;
+
+  services = {
+    xserver.enable = true;
+    pipewire = {
+      enable = true;
+      pulse.enable = true;
+    };
+  };
 
   # services.xserver.displayManager.gdm.enable = true;
   # services.xserver.desktopManager.gnome.enable = true;
@@ -47,7 +55,6 @@
 
   sound.enable = true;
   hardware = {
-    pulseaudio.enable = true;
     bluetooth.enable = true;
   };
 
