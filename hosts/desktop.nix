@@ -81,6 +81,8 @@
 
   system.stateVersion = "23.11";
 
+  nixpkgs.config.allowUnfree = true;
+
   nix = {
     package = pkgs.nixFlakes;
     gc = {
