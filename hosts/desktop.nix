@@ -27,7 +27,10 @@
     };
   };
   
-  time.timeZone = "Asia/Seoul";
+  time = {
+    timeZone = "Asia/Seoul";
+    hardwareClockInLocalTime = true;
+  };
 
   i18n.defaultLocale = "ko_KR.UTF-8";
   # console = {
