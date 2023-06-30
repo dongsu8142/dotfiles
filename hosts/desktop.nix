@@ -14,6 +14,7 @@
       device = "nodev";
       useOSProber = true;
       efiSupport = true;
+      default = 2;
     };
   };
 
