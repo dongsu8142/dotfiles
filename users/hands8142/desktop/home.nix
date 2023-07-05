@@ -10,6 +10,7 @@
       firefox
       kitty
       playerctl
+      discord
       nodejs_20
       ffmpeg_6
       gcc13
