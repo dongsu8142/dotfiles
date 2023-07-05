@@ -8,7 +8,6 @@
     stateVersion = "23.11";
     packages = with pkgs; [
       firefox
-      kitty
       playerctl
       discord
       postman
@@ -24,5 +23,6 @@
     hyprland.enable = true;
     nvim.enable = true;
     git.enable = true;
+    kitty.enable = true;
   };
 }

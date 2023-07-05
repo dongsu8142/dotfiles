@@ -5,5 +5,6 @@
     ./hyprland
     ./nvim
     ./git
+    ./kitty
   ];
 }
