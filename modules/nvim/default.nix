@@ -15,6 +15,9 @@ in
       defaultEditor = true;
       viAlias = true;
       vimAlias = true;
+      plugins = with pkgs.vimPlugins; [
+      	lazy-nvim
+      ];
     };
   };
 }
