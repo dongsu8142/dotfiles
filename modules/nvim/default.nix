@@ -68,6 +68,11 @@ in
           type = "lua";
           config = "require('indent_blankline').setup()";
         }
+        {
+          plugin = rust-tools-nvim;
+          type = "lua";
+          config = "require('rust-tools').setup()";
+        }
 
         # syntax
         nvim-treesitter.withAllGrammars
