@@ -13,6 +13,12 @@ in
       source = "${pkgs.nvchad}";
       recursive = true;
     };
+    home.packages = with pkgs; [
+      lua-language-server
+      nodePackages.typescript-language-server
+      rust-analyzer
+      rustfmt
+    ];
     programs.neovim = {
       enable = true;
       defaultEditor = true;
