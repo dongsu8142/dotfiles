@@ -93,6 +93,16 @@
     };
   };
 
+  virtualisation = {
+    podman = {
+      enable = true;
+      dockerCompat = true;
+    };
+    oci-containers = {
+      backend = "podman";
+    };
+  };
+
   system.stateVersion = "23.11";
 
   nixpkgs.config.allowUnfree = true;
