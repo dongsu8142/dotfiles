@@ -74,6 +74,7 @@
 
   environment.systemPackages = with pkgs; [
     wget
+    tree
   ];
 
   fonts.fonts = with pkgs; [

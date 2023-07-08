@@ -53,6 +53,7 @@
 
   environment.systemPackages = with pkgs; [
     wget
+    tree
   ];
 
   programs.fish = {
