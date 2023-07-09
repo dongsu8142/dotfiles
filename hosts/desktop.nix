@@ -33,7 +33,12 @@
     hardwareClockInLocalTime = true;
   };
 
-  i18n.defaultLocale = "ko_KR.UTF-8";
+  i18n = {
+    defaultLocale = "ko_KR.UTF-8";
+    inputMethod = {
+      enabled = "kime";
+    };
+  };
   # console = {
   #   font = "Lat2-Terminus16";
   #   keyMap = "us";
