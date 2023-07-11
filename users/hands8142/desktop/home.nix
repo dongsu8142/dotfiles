@@ -16,6 +16,7 @@
       gcc13
       rustc
       cargo
+      clippy
     ];
   };
 
