@@ -12,7 +12,6 @@
       discord
       postman
       nodejs_20
-      ffmpeg_6
       gcc13
       rustc
       cargo
