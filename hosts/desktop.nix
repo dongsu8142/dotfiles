@@ -48,7 +48,10 @@
   security.rtkit.enable = true;
 
   services = {
-    xserver.enable = true;
+    xserver = {
+      enable = true;
+      videoDrivers = ["nvidia"];
+    };
     pipewire = {
       enable = true;
       pulse.enable = true;
@@ -65,10 +68,11 @@
   sound.enable = true;
   hardware = {
     bluetooth.enable = true;
+    nvidia = {
+      package = pkgs.linuxKernel.packages.linux_6_1.nvidia_x11;
+      modesetting.enable = true;
+    };
   };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
 
   users.users.hands8142 = {
     isNormalUser = true;
