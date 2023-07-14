@@ -9,7 +9,15 @@
     packages = with pkgs; [
       firefox
       playerctl
-      discord
+      (writeShellApplication {
+        name = "discord";
+        text = "${discord}/bin/discord --use-gl=desktop";
+      })
+      (makeDesktopItem {
+        name = "discord";
+        exec = "discord";
+        desktopName = "Discord";
+      })
       postman
       nodejs_20
       gcc13
