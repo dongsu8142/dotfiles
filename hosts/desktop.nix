@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports = [../hardware/desktop.nix];
@@ -50,9 +50,8 @@
   services = {
     xserver = {
       enable = true;
-
       displayManager = {
-        sessionPackages = [ pkgs.hyprland ];
+        sessionPackages = [ inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.default ];
         sddm.enable = true;
       };
       videoDrivers = ["nvidia"];
@@ -62,10 +61,17 @@
       pulse.enable = true;
     };
   };
-
-  # services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.desktopManager.gnome.enable = true;
   
+  xdg.portal = {
+    enable = true;
+    extraPortals = [
+      (inputs.xdph.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland.override {
+        hyprland-share-picker = inputs.xdph.packages.${pkgs.stdenv.hostPlatform.system}.hyprland-share-picker.override {
+          hyprland = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.default;
+        };
+      })
+    ];
+  }; 
 
   # services.xserver.layout = "us";
   # services.xserver.xkbOptions = "eurosign:e,caps:escape";

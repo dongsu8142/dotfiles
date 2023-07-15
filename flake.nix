@@ -11,6 +11,10 @@
       url = "github:hyprwm/Hyprland/v0.26.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    xdph = {
+      url = "github:hyprwm/xdg-desktop-portal-hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { nixpkgs, home-manager, ... }@inputs:
@@ -25,6 +29,7 @@
       mkSystem = hostname:
         lib.nixosSystem {
           inherit system;
+          specialArgs = { inherit inputs; };
           modules = [
             ./overlays
             ./hosts/${hostname}.nix
