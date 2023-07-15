@@ -74,7 +74,6 @@
   hardware = {
     bluetooth.enable = true;
     nvidia = {
-      package = pkgs.linuxKernel.packages.linux_6_1.nvidia_x11;
       modesetting.enable = true;
     };
   };
