@@ -50,6 +50,11 @@
   services = {
     xserver = {
       enable = true;
+
+      displayManager = {
+        sessionPackages = [ pkgs.hyprland ];
+        sddm.enable = true;
+      };
       videoDrivers = ["nvidia"];
     };
     pipewire = {
