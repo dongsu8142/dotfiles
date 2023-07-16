@@ -24,6 +24,7 @@
       rustc
       cargo
       clippy
+      cargo-watch
     ];
   };
 
