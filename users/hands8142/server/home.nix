@@ -12,6 +12,7 @@
       gcc13
       rustc
       cargo
+      screen
     ];
   };
 
