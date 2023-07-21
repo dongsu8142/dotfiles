@@ -8,6 +8,7 @@
     stateVersion = "23.11";
     packages = with pkgs; [
       firefox
+      naver-whale-stable
       playerctl
       (writeShellApplication {
         name = "discord";
