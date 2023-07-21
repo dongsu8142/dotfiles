@@ -7,8 +7,7 @@
     homeDirectory = "/home/hands8142";
     stateVersion = "23.11";
     packages = with pkgs; [
-      firefox
-      naver-whale-stable
+      naver-whale
       playerctl
       (writeShellApplication {
         name = "discord";
