@@ -8,17 +8,10 @@ in
 
 {
   options.modules.hyprland = { enable = mkEnableOption "hyprland"; };
-  imports = [ inputs.hyprland.homeManagerModules.default ];
+  # imports = [ inputs.hyprland.homeManagerModules.default ];
   config = mkIf cfg.enable {
     home.file.".config/hypr/config".source = ./config;
-    wayland.windowManager.hyprland = {
-      enable = true;
-      xwayland = {
-        enable = true;
-        hidpi = true;
-      };
-      nvidiaPatches = true;
-      extraConfig = ''
+    home.file.".config/hypr/hyprland.conf".text = ''
         source=~/.config/hypr/config/monitors.conf
         source=~/.config/hypr/config/settings.conf
         source=~/.config/hypr/config/rules.conf
@@ -26,6 +19,21 @@ in
         source=~/.config/hypr/config/theme.conf
         source=~/.config/hypr/config/startup.conf
       '';
-    };
+    # wayland.windowManager.hyprland = {
+    #   enable = true;
+    #   xwayland = {
+    #     enable = true;
+    #     hidpi = true;
+    #   };
+    #   nvidiaPatches = true;
+    #   extraConfig = ''
+    #     source=~/.config/hypr/config/monitors.conf
+    #     source=~/.config/hypr/config/settings.conf
+    #     source=~/.config/hypr/config/rules.conf
+    #     source=~/.config/hypr/config/binds.conf
+    #     source=~/.config/hypr/config/theme.conf
+    #     source=~/.config/hypr/config/startup.conf
+    #   '';
+    # };
   };
 }

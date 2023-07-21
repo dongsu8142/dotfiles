@@ -51,7 +51,6 @@
     xserver = {
       enable = true;
       displayManager = {
-        sessionPackages = [ inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.default ];
         sddm.enable = true;
       };
       videoDrivers = ["nvidia"];
@@ -62,17 +61,6 @@
     };
   };
   
-  xdg.portal = {
-    enable = true;
-    extraPortals = [
-      (inputs.xdph.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland.override {
-        hyprland-share-picker = inputs.xdph.packages.${pkgs.stdenv.hostPlatform.system}.hyprland-share-picker.override {
-          hyprland = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.default;
-        };
-      })
-    ];
-  }; 
-
   # services.xserver.layout = "us";
   # services.xserver.xkbOptions = "eurosign:e,caps:escape";
 
@@ -111,6 +99,14 @@
         set -g theme_nerd_fonts yes
       '';
     };
+    hyprland = {
+      enable = true;
+      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+      xwayland = {
+        enable = true;
+      };
+      nvidiaPatches = true;
+    };
   };
 
   virtualisation = {
@@ -136,6 +132,8 @@
     };
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
+      substituters = ["https://hyprland.cachix.org"];
+      trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
     };
   };
 
