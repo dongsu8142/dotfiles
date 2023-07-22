@@ -10,7 +10,7 @@
       naver-whale
       playerctl
       (writeShellApplication {
-        name = "discord";
+      name = "discord";
         text = "${discord}/bin/discord --use-gl=desktop";
       })
       (makeDesktopItem {
@@ -33,5 +33,6 @@
     nvim.enable = true;
     git.enable = true;
     kitty.enable = true;
+    ags.enable = true;
   };
 }

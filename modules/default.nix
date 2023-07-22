@@ -6,5 +6,6 @@
     ./nvim
     ./git
     ./kitty
+    ./ags
   ];
 }

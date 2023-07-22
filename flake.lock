@@ -1,5 +1,23 @@
 {
   "nodes": {
+    "dongsu8142-nur": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1690037953,
+        "narHash": "sha256-PMjpEtJf75ot3Zg7nBlqpUZnTcc6D70Qkpogn0etBBY=",
+        "owner": "dongsu8142",
+        "repo": "nur",
+        "rev": "d5a988ca09afe67f2209cd1008b075c2553b40db",
+        "type": "github"
+      },
+      "original": {
+        "owner": "dongsu8142",
+        "repo": "nur",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -66,6 +84,22 @@
     },
     "nixpkgs": {
       "locked": {
+        "lastModified": 1689995782,
+        "narHash": "sha256-QIAbzRIsRRB69LShQ/z4BVFbIjH8Z8sJ0qOBd9kPHHo=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "0b411c1e040870e89a3e598437e708979137b665",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
         "lastModified": 1689940971,
         "narHash": "sha256-397xShPnFqPC59Bmpo3lS+/Aw0yoDRMACGo1+h2VJMo=",
         "owner": "nixos",
@@ -80,11 +114,28 @@
         "type": "github"
       }
     },
+    "nur": {
+      "locked": {
+        "lastModified": 1690030613,
+        "narHash": "sha256-8/Wmb7U8Meg+qmlI7YPPZEl+I7cfIGZYi9nkwa2mUP0=",
+        "owner": "nix-community",
+        "repo": "NUR",
+        "rev": "e2986014d7da46ea1cafb1e86aab6df59fe5a614",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "NUR",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
+        "dongsu8142-nur": "dongsu8142-nur",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs_2",
+        "nur": "nur"
       }
     },
     "wlroots": {
