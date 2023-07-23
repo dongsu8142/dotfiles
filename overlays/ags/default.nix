@@ -40,7 +40,7 @@ stdenv.mkDerivation {
 
   buildInputs = with pkgs; [
     gobject-introspection
-    nur.repos.dongsu8142.gjs
+    nur.repos.dongsu8142.gtk-gjs
     gtk3
     libpulseaudio
   ];
