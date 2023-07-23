@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, inputs, ... }:
 
 with lib;
 
@@ -12,7 +12,7 @@ in
     home = {
       file.".config/ags".source = ./ags;
       packages = with pkgs; [
-        ags
+        inputs.ags.packages.${pkgs.system}.default
         socat
       ];
     };

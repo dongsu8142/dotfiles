@@ -12,7 +12,6 @@
           };
         };
         nvchad = prev.callPackage ./nvchad { };
-        ags = prev.callPackage ./ags { };
       }
     )
   ];
