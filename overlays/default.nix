@@ -12,7 +12,6 @@
           };
         };
         nvchad = prev.callPackage ./nvchad { };
-        naver-whale = prev.callPackage ./naver-whale { };
         ags = prev.callPackage ./ags { };
       }
     )

@@ -7,7 +7,7 @@
     homeDirectory = "/home/hands8142";
     stateVersion = "23.11";
     packages = with pkgs; [
-      naver-whale
+      nur.repos.dongsu8142.naver-whale
       playerctl
       (writeShellApplication {
       name = "discord";
