@@ -25,6 +25,7 @@
       cargo
       clippy
       cargo-watch
+      surrealdb
     ];
   };
 
