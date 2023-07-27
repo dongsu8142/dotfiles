@@ -89,7 +89,7 @@
     tree
   ];
 
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk
     nanum
