@@ -35,5 +35,6 @@
     git.enable = true;
     kitty.enable = true;
     ags.enable = true;
+    zellij.enable = true;
   };
 }

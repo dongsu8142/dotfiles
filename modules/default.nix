@@ -7,5 +7,6 @@
     ./git
     ./kitty
     ./ags
+    ./zellij
   ];
 }
