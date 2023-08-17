@@ -110,7 +110,7 @@
       xwayland = {
         enable = true;
       };
-      nvidiaPatches = true;
+      enableNvidiaPatches = true;
     };
   };
 
