@@ -19,6 +19,7 @@
         desktopName = "Discord";
       })
       postman
+      podman-compose
       nodejs_20
       gcc13
       rustc
