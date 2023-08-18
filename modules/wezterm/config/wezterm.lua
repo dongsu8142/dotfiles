@@ -2,6 +2,8 @@ local wezterm = require 'wezterm'
 require('events')
 
 return {
+  front_end = "WebGpu",
+
   colors = require('theme'),
   window_frame = {
     active_titlebar_bg = '#333333',
@@ -15,6 +17,7 @@ return {
   window_close_confirmation = 'NeverPrompt',
   hide_tab_bar_if_only_one_tab = true,
 
+  enable_wayland = true,
   enable_scroll_bar = false;
   window_padding = {
     top    = '0.5cell',
