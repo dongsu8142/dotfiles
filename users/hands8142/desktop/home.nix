@@ -36,5 +36,6 @@
     kitty.enable = true;
     ags.enable = true;
     zellij.enable = true;
+    wezterm.enable = true;
   };
 }

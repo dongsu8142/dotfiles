@@ -8,5 +8,6 @@
     ./kitty
     ./ags
     ./zellij
+    ./wezterm
   ];
 }
