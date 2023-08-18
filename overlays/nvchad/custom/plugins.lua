@@ -33,6 +33,10 @@ local plugins = {
       crates.show()
       require("core.utils").load_mappings("crates")
     end
+  },
+  {
+    'imsnif/kdl.vim',
+    event = { "BufReadPre *.kdl" }
   }
 }
 return plugins
