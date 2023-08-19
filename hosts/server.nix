@@ -77,6 +77,21 @@
     };
     oci-containers = {
       backend = "podman";
+      containers = {
+        postgresql = {
+          image = "docker.io/library/postgres";
+          autoStart = true;
+          ports = [ "5432:5432" ];
+          volumes = [ "postgres_data:/var/lib/postgresql/data" ];
+          environmentFiles = [ ../secret/.env ];
+        };
+        pgadmin = {
+          image = "docker.io/dpage/pgadmin4";
+          autoStart = true;
+          ports = [ "9876:80" ];
+          environmentFiles = [ ../secret/.env ];
+        };
+      };
     };
   };
 
