@@ -9,5 +9,6 @@
     ./ags
     ./zellij
     ./wezterm
+    ./ssh-key
   ];
 }

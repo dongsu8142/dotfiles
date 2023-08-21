@@ -19,5 +19,6 @@
   modules = {
     nvim.enable = true;
     git.enable = true;
+    ssh-key.enable = true;
   };
 }

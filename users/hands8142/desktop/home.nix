@@ -37,5 +37,6 @@
     ags.enable = true;
     zellij.enable = true;
     wezterm.enable = true;
+    ssh-key.enable = true;
   };
 }
