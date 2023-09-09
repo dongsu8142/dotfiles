@@ -2,7 +2,7 @@ local wezterm = require 'wezterm'
 require('events')
 
 return {
-  front_end = "WebGpu",
+  front_end = "OpenGL",
 
   colors = require('theme'),
   window_frame = {
@@ -16,6 +16,7 @@ return {
   default_prog = { 'fish' },
   window_close_confirmation = 'NeverPrompt',
   hide_tab_bar_if_only_one_tab = true,
+  hide_mouse_cursor_when_typing = false,
 
   enable_wayland = true,
   enable_scroll_bar = false;
