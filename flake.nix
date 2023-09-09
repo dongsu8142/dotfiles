@@ -8,7 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland = {
-      url = "github:hyprwm/Hyprland/v0.29.0";
+      url = "github:hyprwm/Hyprland/v0.29.1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     ags = {
@@ -35,6 +35,7 @@
           modules = [
             ./overlays
             ./hosts/${hostname}.nix
+            inputs.hyprland.nixosModules.default
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
