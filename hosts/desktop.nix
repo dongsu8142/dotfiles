@@ -14,7 +14,7 @@
       device = "nodev";
       useOSProber = true;
       efiSupport = true;
-      default = 2;
+      default = "saved";
     };
   };
 
@@ -74,6 +74,7 @@
     };
     nvidia = {
       modesetting.enable = true;
+      powerManagement.enable = true;
     };
   };
 
