@@ -27,6 +27,7 @@
       clippy
       cargo-watch
       wl-clipboard
+      btop
     ];
   };
 

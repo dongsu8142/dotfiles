@@ -13,6 +13,7 @@
       rustc
       cargo
       screen
+      btop
     ];
   };
 
