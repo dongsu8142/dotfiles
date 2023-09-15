@@ -1,0 +1,4 @@
+[
+  ./nushell
+  ./git
+]

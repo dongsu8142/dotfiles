@@ -11,10 +11,6 @@
       url = "github:hyprwm/Hyprland/v0.29.1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    ags = {
-      url = "github:Aylur/ags";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nur.url = "github:nix-community/NUR";
     dongsu8142-nur.url = "github:dongsu8142/nur";
   };
@@ -33,21 +29,29 @@
           inherit system;
           specialArgs = { inherit inputs; };
           modules = [
-            ./overlays
-            ./hosts/${hostname}.nix
             inputs.hyprland.nixosModules.default
+            ./overlays
+            ./hosts/${hostname}
             home-manager.nixosModules.home-manager {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.${user} = import ./users/${user}/${hostname}/home.nix;
-              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.${user} = {
+                  imports = [
+                    (import ./hosts/${hostname}/home.nix)
+                  ] ++ [
+                    inputs.hyprland.homeManagerModules.default
+                  ];
+                };
+                extraSpecialArgs = { inherit inputs; };
+              };
             }
           ];
         };
     in {
       nixosConfigurations = {
-        server = mkSystem "server";
         desktop = mkSystem "desktop";
+        server = mkSystem "server";
       };
     };
 }

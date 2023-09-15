@@ -1,25 +1,5 @@
 {
   "nodes": {
-    "ags": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1694614674,
-        "narHash": "sha256-EEumhgI8b3s4iA3rbZHyHVRST0zaWTPS6LOD2G7fhMQ=",
-        "owner": "Aylur",
-        "repo": "ags",
-        "rev": "d55414634436a0422af31373aa82f046c5a6eae7",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Aylur",
-        "repo": "ags",
-        "type": "github"
-      }
-    },
     "dongsu8142-nur": {
       "inputs": {
         "nixpkgs": "nixpkgs"
@@ -142,11 +122,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1694691985,
-        "narHash": "sha256-7LqdxQhbEFbFUgSAMUgtYWNzCvf6V/fue2NjhQu+ZUI=",
+        "lastModified": 1694743120,
+        "narHash": "sha256-2/RmbBAoGh+FrFL51NYqxn7LX0WL4vBVSwlpOY5btBI=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "b662b29936b2461d08272623519e275d9f0d2b73",
+        "rev": "6bfe296737367bc22a159469af77820d86970deb",
         "type": "github"
       },
       "original": {
@@ -157,7 +137,6 @@
     },
     "root": {
       "inputs": {
-        "ags": "ags",
         "dongsu8142-nur": "dongsu8142-nur",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
