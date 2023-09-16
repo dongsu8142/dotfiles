@@ -66,6 +66,8 @@
     logind = {
       lidSwitch = "ignore";
     };
+    tlp.enable = true;
+    auto-cpufreq.enable = true;
   };
 
   system = {
