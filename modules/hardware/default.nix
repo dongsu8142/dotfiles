@@ -1,3 +1,4 @@
 [
+  ./audio.nix
   ./nvidia.nix
 ]

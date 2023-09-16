@@ -54,20 +54,11 @@
         sddm.enable = true;
       };
     };
-    pipewire = {
-      enable = true;
-      pulse.enable = true;
-    };
     dbus.enable = true;
   };
   
   # services.xserver.layout = "us";
   # services.xserver.xkbOptions = "eurosign:e,caps:escape";
-
-  sound.enable = true;
-  hardware = {
-    bluetooth.enable = true;
-  };
 
   users.users.hands8142 = {
     isNormalUser = true;
