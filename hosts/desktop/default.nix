@@ -2,6 +2,7 @@
 
 {
   imports = 
+    (import ../../modules/hardware) ++
     (import ../../modules/virtualisation) ++
     [./hardware-configuration.nix] ++
     [../../modules/desktop/hyprland];
@@ -52,7 +53,6 @@
       displayManager = {
         sddm.enable = true;
       };
-      videoDrivers = ["nvidia"];
     };
     pipewire = {
       enable = true;
@@ -67,15 +67,6 @@
   sound.enable = true;
   hardware = {
     bluetooth.enable = true;
-    opengl = {
-      enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
-    };
-    nvidia = {
-      modesetting.enable = true;
-      powerManagement.enable = true;
-    };
   };
 
   users.users.hands8142 = {
