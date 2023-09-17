@@ -1,0 +1,8 @@
+{ ... }:
+{
+  programs = {
+    btop = {
+      enable = true;
+    };
+  };
+}

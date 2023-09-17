@@ -27,7 +27,6 @@
       postman
       nodejs_20
       gcc13
-      btop
       gnumake
     ];
   };
