@@ -6,7 +6,7 @@
     (import ../../modules/shell) ++
     (import ../../modules/editors) ++
     (import ../../modules/programs/wayland) ++
-    (import ../../modules/theme/nord/common) ++
+    (import ../../modules/theme/catppuccin/common) ++
     (import ../../modules/devlop);
   home = {
     username = "hands8142";
