@@ -11,6 +11,10 @@
       url = "github:hyprwm/Hyprland/v0.29.1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    gBar = {
+      url = "github:scorpion-26/gBar";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nur.url = "github:nix-community/NUR";
     dongsu8142-nur.url = "github:dongsu8142/nur";
   };

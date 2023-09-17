@@ -72,6 +72,7 @@
     systemPackages = with pkgs; [
       wget
       tree
+      lm_sensors
     ];
   };
 

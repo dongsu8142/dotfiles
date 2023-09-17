@@ -5,7 +5,7 @@
     [ (import ../../modules/desktop/hyprland/home.nix) ] ++
     (import ../../modules/shell) ++
     (import ../../modules/editors) ++
-    (import ../../modules/programs/common) ++
+    (import ../../modules/programs/wayland) ++
     (import ../../modules/theme/nord/common) ++
     (import ../../modules/devlop);
   home = {
