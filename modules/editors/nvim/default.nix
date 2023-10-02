@@ -14,8 +14,6 @@
     packages = with pkgs; [
       lua-language-server
       nodePackages.typescript-language-server
-      rust-analyzer
-      rustfmt
     ];
   };
   xdg.configFile."nvim" = {

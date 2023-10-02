@@ -2,6 +2,7 @@
 
 {
   nixpkgs.overlays = [
+    inputs.rust-overlay.overlays.default
     (final: prev:
       {
         nur = import inputs.nur {
