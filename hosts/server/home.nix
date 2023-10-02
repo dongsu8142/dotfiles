@@ -18,6 +18,7 @@
       screen
       btop
       gnumake
+      trunk
     ];
   };
 }
