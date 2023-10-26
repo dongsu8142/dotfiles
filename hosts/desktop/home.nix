@@ -24,7 +24,6 @@
         exec = "discord";
         desktopName = "Discord";
       })
-      postman
       nodejs_20
       gcc13
       gnumake
