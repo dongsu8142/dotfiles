@@ -13,7 +13,8 @@
     homeDirectory = "/home/hands8142";
     stateVersion = "23.11";
     packages = with pkgs; [
-      nur.repos.dongsu8142.naver-whale
+      # nur.repos.dongsu8142.naver-whale
+      firefox
       playerctl
       (writeShellApplication {
       name = "discord";
