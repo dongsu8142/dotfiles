@@ -48,13 +48,15 @@
     description = "hands8142";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
-    shell = pkgs.nushell;
+    shell = pkgs.fish;
   };
+
+  programs.fish.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 
   environment = {
-    shells = with pkgs; [ nushell ];
+    shells = with pkgs; [ fish ];
     systemPackages = with pkgs; [
       wget
       tree

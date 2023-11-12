@@ -64,11 +64,13 @@
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
-    shell = pkgs.nushell;
+    shell = pkgs.fish;
   };
 
+  programs.fish.enable = true;
+
   environment = {
-    shells = with pkgs; [ nushell ];
+    shells = with pkgs; [ fish ];
     systemPackages = with pkgs; [
       wget
       tree
