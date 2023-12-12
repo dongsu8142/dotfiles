@@ -14,7 +14,6 @@
   wayland.windowManager.hyprland = {
     enable = true;
     systemdIntegration = true;
-    enableNvidiaPatches = true;
     extraConfig = ''
       source=~/.config/hypr/config/monitors.conf
       source=~/.config/hypr/config/settings.conf
