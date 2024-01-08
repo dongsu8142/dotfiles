@@ -1,4 +1,5 @@
 [
   ./rust
   ./python
+  ./java
 ]
