@@ -13,7 +13,7 @@
   };
   wayland.windowManager.hyprland = {
     enable = true;
-    systemdIntegration = true;
+    systemd.enable = true;
     extraConfig = ''
       source=~/.config/hypr/config/monitors.conf
       source=~/.config/hypr/config/settings.conf
