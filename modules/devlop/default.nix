@@ -2,4 +2,5 @@
   ./rust
   ./python
   ./java
+  ./node
 ]

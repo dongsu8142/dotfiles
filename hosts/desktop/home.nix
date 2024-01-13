@@ -14,7 +14,6 @@
     packages = with pkgs; [
       firefox
       discord
-      nodejs_20
       gcc13
       gnumake
       trunk
