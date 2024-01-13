@@ -17,6 +17,7 @@
       gcc13
       gnumake
       trunk
+      terminator
     ];
   };
 }
