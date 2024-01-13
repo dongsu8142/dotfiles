@@ -18,6 +18,7 @@
       gnumake
       trunk
       terminator
+      ffmpeg
     ];
   };
 }

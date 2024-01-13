@@ -10,8 +10,7 @@
     homeDirectory = "/home/hands8142";
     stateVersion = "23.11";
     packages = with pkgs; [
-      nodejs_20
-      ffmpeg_6
+      ffmpeg
       gcc13
       screen
       btop
