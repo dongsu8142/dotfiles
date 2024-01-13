@@ -5,7 +5,7 @@
     (import ../../modules/hardware) ++
     (import ../../modules/virtualisation) ++
     [./hardware-configuration.nix] ++
-    [../../modules/desktop/hyprland];
+    [../../modules/desktop/gnome];
 
   boot.loader = {
     efi.canTouchEfiVariables = true;
@@ -50,9 +50,6 @@
   services = {
     xserver = {
       enable = true;
-      displayManager = {
-        sddm.enable = true;
-      };
     };
     dbus.enable = true;
   };

@@ -7,10 +7,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland = {
-      url = "github:hyprwm/Hyprland/v0.34.0";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     gBar = {
       url = "github:scorpion-26/gBar";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -19,8 +15,6 @@
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nur.url = "github:nix-community/NUR";
-    dongsu8142-nur.url = "github:dongsu8142/nur";
   };
 
   outputs = { nixpkgs, home-manager, ... }@inputs:
@@ -37,7 +31,6 @@
           inherit system;
           specialArgs = { inherit inputs; };
           modules = [
-            inputs.hyprland.nixosModules.default
             ./overlays
             ./hosts/${hostname}
             home-manager.nixosModules.home-manager {
@@ -47,8 +40,6 @@
                 users.${user} = {
                   imports = [
                     (import ./hosts/${hostname}/home.nix)
-                  ] ++ [
-                    inputs.hyprland.homeManagerModules.default
                   ];
                 };
                 extraSpecialArgs = { inherit inputs; };

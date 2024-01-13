@@ -1,4 +1,3 @@
 [
   ./btop
-  ./kitty
 ]

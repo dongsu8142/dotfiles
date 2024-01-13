@@ -1,5 +1,4 @@
 [
   ./btop
-  ./kitty
   ./lazygit
 ]

@@ -1,3 +1,0 @@
-[
-  ./gBar
-] ++ import ../common
