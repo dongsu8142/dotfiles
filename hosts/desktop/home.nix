@@ -4,8 +4,8 @@
   imports = 
     (import ../../modules/shell) ++
     (import ../../modules/editors) ++
-    (import ../../modules/programs/common) ++
-    (import ../../modules/theme/catppuccin/common) ++
+    (import ../../modules/programs/desktop) ++
+    (import ../../modules/theme/catppuccin/desktop) ++
     (import ../../modules/devlop);
   home = {
     username = "hands8142";
@@ -18,7 +18,6 @@
       gcc13
       gnumake
       trunk
-      terminator
       ffmpeg
     ];
   };
