@@ -22,4 +22,7 @@
       ffmpeg
     ];
   };
+  xdg.userDirs = {
+    enable = true;
+  };
 }
