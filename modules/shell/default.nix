@@ -1,4 +1,5 @@
 [
   ./fish
   ./git
+  ./starship
 ]
