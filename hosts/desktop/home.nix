@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
   imports = 
@@ -12,7 +12,8 @@
     homeDirectory = "/home/hands8142";
     stateVersion = "23.11";
     packages = with pkgs; [
-      firefox
+      # firefox
+      inputs.dongsu8142-nur.packages."x86_64-linux".naver-whale
       discord
       gcc13
       gnumake

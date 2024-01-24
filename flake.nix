@@ -7,12 +7,12 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    gBar = {
-      url = "github:scorpion-26/gBar";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    dongsu8142-nur = {
+      url = "github:dongsu8142/nur";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
