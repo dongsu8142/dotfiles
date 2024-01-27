@@ -14,6 +14,8 @@
     packages = with pkgs; [
       lua-language-server
       nodePackages.typescript-language-server
+      nodePackages.prettier
+      nodePackages.eslint
     ];
   };
   xdg.configFile."nvim" = {

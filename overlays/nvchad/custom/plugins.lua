@@ -7,6 +7,27 @@ local plugins = {
     end,
   },
   {
+    'mfussenegger/nvim-lint',
+    event = "VeryLazy",
+    config = function()
+      require "custom.configs.lint"
+    end
+  },
+  {
+    'mhartington/formatter.nvim',
+    event = "VeryLazy",
+    opts = function()
+      return require 'custom.configs.formatter'
+    end
+  },
+  {
+    'vuki656/package-info.nvim',
+    event = { "BufRead package.json" },
+    config = function (_, _)
+      require('package-info').setup()
+    end
+  },
+  {
     'rust-lang/rust.vim',
     ft = 'rust',
     init = function()
