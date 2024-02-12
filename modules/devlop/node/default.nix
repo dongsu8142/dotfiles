@@ -4,7 +4,8 @@
   home = {
     packages = with pkgs; [
       nodejs_21
-      yarn
+      yarn-berry
+      nodePackages.pnpm
     ];
   };
 }
