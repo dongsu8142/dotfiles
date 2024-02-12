@@ -1,12 +1,13 @@
 { config, pkgs, lib, inputs, ... }:
 
 {
-  imports = 
+  imports =
     (import ../../modules/shell) ++
     (import ../../modules/editors) ++
     (import ../../modules/programs/desktop) ++
     (import ../../modules/theme/catppuccin/desktop) ++
-    (import ../../modules/devlop);
+    (import ../../modules/devlop) ++
+    [../../modules/desktop/gnome/home.nix];
   home = {
     username = "hands8142";
     homeDirectory = "/home/hands8142";
