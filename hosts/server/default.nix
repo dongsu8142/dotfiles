@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = 
+  imports =
     (import ../../modules/virtualisation/default.nix) ++
     [./hardware-configuration.nix];
 
@@ -19,7 +19,7 @@
       enable = true;
       wifi.powersave = false;
     };
-    firewall.enable = true;
+    firewall.enable = false;
   };
 
   time.timeZone = "Asia/Seoul";
@@ -39,8 +39,10 @@
   };
 
   services.xserver = {
-    layout = "us";
-    xkbVariant = "";
+    xkb = {
+      layout = "us";
+      variant = "";
+    };
   };
 
   users.users.hands8142 = {

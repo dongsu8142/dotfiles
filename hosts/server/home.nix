@@ -1,10 +1,11 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports = 
+  imports =
     (import ../../modules/shell) ++
     (import ../../modules/editors) ++
-    (import ../../modules/devlop);
+    (import ../../modules/devlop) ++
+    (import ../../modules/theme/catppuccin/common);
   home = {
     username = "hands8142";
     homeDirectory = "/home/hands8142";
