@@ -27,7 +27,13 @@
     gnome-initial-setup
   ]);
   programs.dconf.enable = true;
-  environment.systemPackages = with pkgs; [
-    gnome.gnome-tweaks
-  ];
+  environment = {
+    variables = {
+      GI_TYPELIB_PATH = "/run/current-system/sw/lib/girepository-1.0"; # astra monitor
+    };
+    systemPackages = with pkgs; [
+      gnome.gnome-tweaks
+      libgtop # astra monitor
+    ];
+  };
 }
