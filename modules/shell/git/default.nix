@@ -1,6 +1,9 @@
 { pkgs, lib, config, ... }:
 
 {
+  xdg.configFile."git/.gitmessage.txt" = {
+    source = ./.gitmessage.txt;
+  };
   programs = {
     git = {
       enable = true;
@@ -8,6 +11,7 @@
       userEmail = "dongsu8142@naver.com";
       extraConfig = {
         init = { defaultBranch = "main"; };
+        commit = { template = "~/.config/git/.gitmessage.txt"; };
       };
     };
     lazygit = {
