@@ -5,13 +5,13 @@ let
 in
 stdenv.mkDerivation {
   pname = "nvchad";
-  version = "2.0.0";
+  version = "2.5.0";
 
   src = pkgs.fetchFromGitHub {
     owner = "NvChad";
     repo = "NvChad";
-    rev = "13cce81d998630e46b1ad2d60dd10f3013726bb6";
-    sha256 = "0r1H0yO301LMsBwVO0Dec+I8LvaEuVaJ+2hkjNn6qtk=";
+    rev = "e5f8a38ae3d6b3bedf68f29b0e96dad7a4ca2da5";
+    sha256 = "ehz0vQHY1DlGPvhilx565V2pIZo+WZkK8kDcKMgRDaA=";
   };
 
   installPhase = ''

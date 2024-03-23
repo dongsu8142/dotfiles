@@ -11,6 +11,10 @@
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    neovim-nightly-overlay = {
+      url = "github:nix-community/neovim-nightly-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     dongsu8142-nur = {
       url = "github:dongsu8142/nur";
       inputs.nixpkgs.follows = "nixpkgs";

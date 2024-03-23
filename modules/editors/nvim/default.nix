@@ -4,10 +4,12 @@
   programs = {
     neovim = {
       enable = true;
+      package = pkgs.neovim-nightly;
       viAlias = true;
       vimAlias = true;
       # withPython3 = true;
       withNodeJs = true;
+      defaultEditor = true;
     };
   };
   home = {
@@ -19,7 +21,8 @@
     ];
   };
   xdg.configFile."nvim" = {
-    source = "${pkgs.nvchad}";
+    # source = "${pkgs.nvchad}";
+    source = ./config;
     recursive = true;
   };
 }
