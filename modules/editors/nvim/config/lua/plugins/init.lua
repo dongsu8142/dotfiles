@@ -53,4 +53,8 @@ return {
       require("core.utils").load_mappings("crates")
     end
   },
+  {
+    'github/copilot.vim',
+    lazy = false,
+  }
 }
