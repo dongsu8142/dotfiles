@@ -1,7 +1,7 @@
 { config, pkgs, inputs, ... }:
 
 {
-  imports = 
+  imports =
     (import ../../modules/hardware) ++
     (import ../../modules/virtualisation) ++
     [./hardware-configuration.nix] ++
@@ -27,7 +27,7 @@
       enable = true;
     };
   };
-  
+
   time = {
     timeZone = "Asia/Seoul";
     hardwareClockInLocalTime = true;
@@ -53,18 +53,24 @@
     };
     dbus.enable = true;
   };
-  
+
   # services.xserver.layout = "us";
   # services.xserver.xkbOptions = "eurosign:e,caps:escape";
 
   users.users.hands8142 = {
     isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "wireshark" ];
     packages = with pkgs; [];
     shell = pkgs.fish;
   };
 
-  programs.fish.enable = true;
+  programs = {
+    fish.enable = true;
+    wireshark = {
+      enable = true;
+      package = pkgs.wireshark;
+    };
+  };
 
   environment = {
     shells = with pkgs; [ fish ];
@@ -81,7 +87,7 @@
     nanum
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
   ];
- 
+
   system = {
     autoUpgrade = {
       channel = "https://nixos.org/channels/nixos-unstable";
@@ -104,6 +110,4 @@
       trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
     };
   };
-
 }
-
