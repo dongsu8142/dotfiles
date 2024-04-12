@@ -18,6 +18,7 @@
       nodePackages.typescript-language-server
       nodePackages.prettier
       nodePackages.eslint
+      nodePackages.pyright
     ];
   };
   xdg.configFile."nvim" = {

@@ -14,10 +14,10 @@ return {
     end
   },
   {
-    'mhartington/formatter.nvim',
-    event = "VeryLazy",
+    "stevearc/conform.nvim",
+    event = "BufReadPre",
     opts = function()
-      return require 'configs.formatter'
+      return require "configs.conform"
     end
   },
   {
