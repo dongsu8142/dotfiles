@@ -59,7 +59,7 @@
 
   users.users.hands8142 = {
     isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" "wireshark" ];
+    extraGroups = [ "networkmanager" "wheel" "wireshark" "docker" ];
     packages = with pkgs; [];
     shell = pkgs.fish;
   };
