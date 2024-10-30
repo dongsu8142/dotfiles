@@ -20,6 +20,9 @@
       gnumake
       trunk
       ffmpeg
+      jetbrains.rust-rover
+      jetbrains.goland
+      zed-editor
     ];
   };
   xdg.userDirs = {

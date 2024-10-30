@@ -36,7 +36,8 @@
   i18n = {
     defaultLocale = "ko_KR.UTF-8";
     inputMethod = {
-      enabled = "kime";
+      enable = true;
+      type = "kime";
     };
   };
   # console = {
@@ -83,7 +84,7 @@
 
   fonts.packages = with pkgs; [
     noto-fonts
-    noto-fonts-cjk
+    noto-fonts-cjk-sans
     nanum
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
   ];
@@ -98,7 +99,7 @@
   nixpkgs.config.allowUnfree = true;
 
   nix = {
-    package = pkgs.nixFlakes;
+    package = pkgs.nixVersions.latest;
     gc = {
       automatic = true;
       dates = "weekly";

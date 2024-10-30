@@ -4,16 +4,16 @@
   programs = {
     java = {
       enable = true;
-      package = pkgs.openjdk17;
+      package = pkgs.jdk17;
     };
   };
   home = {
     packages = with pkgs; [
       (maven.override {
-        jdk = openjdk17;
+        jdk_headless = jdk17;
        })
       (gradle.override {
-        java = openjdk17;
+        java = jdk17;
       })
     ];
   };

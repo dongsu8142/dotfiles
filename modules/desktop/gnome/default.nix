@@ -10,7 +10,7 @@
     gnome-photos
     gnome-tour
     gedit # text editor
-  ]) ++ (with pkgs.gnome; [
+  ]) ++ (with pkgs; [
     cheese # webcam tool
     gnome-music
     gnome-terminal
@@ -32,7 +32,7 @@
       GI_TYPELIB_PATH = "/run/current-system/sw/lib/girepository-1.0"; # astra monitor
     };
     systemPackages = with pkgs; [
-      gnome.gnome-tweaks
+      gnome-tweaks
       libgtop # astra monitor
     ];
   };

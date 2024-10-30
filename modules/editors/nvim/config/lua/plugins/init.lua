@@ -23,7 +23,7 @@ return {
   {
     'vuki656/package-info.nvim',
     event = { "BufRead package.json" },
-    config = function (_, _)
+    config = function(_, _)
       require('package-info').setup()
     end
   },
@@ -46,12 +46,20 @@ return {
   {
     'saecki/crates.nvim',
     event = { "BufRead Cargo.toml" },
-    config = function (_, opts)
+    config = function(_, opts)
       local crates = require 'crates'
       crates.setup(opts)
       crates.show()
       require("core.utils").load_mappings("crates")
     end
+  },
+  {
+    "rest-nvim/rest.nvim",
+    ft = "http",
+    dependencies = { "luarocks.nvim" },
+    config = function()
+      require("rest-nvim").setup()
+    end,
   },
   {
     'github/copilot.vim',

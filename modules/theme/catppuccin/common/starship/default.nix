@@ -2,7 +2,7 @@
 
 let
   theme = pkgs.fetchurl {
-    url = "https://raw.githubusercontent.com/catppuccin/starship/main/palettes/mocha.toml";
+    url = "https://raw.githubusercontent.com/catppuccin/starship/main/themes/mocha.toml";
     hash = "sha256-cSaZrSfbk97d2kV3q5dT924MgmUuY8eYIIU0PIygH5w=";
   };
 in

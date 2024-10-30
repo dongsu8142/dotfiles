@@ -4,7 +4,7 @@
   programs = {
     neovim = {
       enable = true;
-      package = pkgs.neovim-nightly;
+      # package = pkgs.neovim-nightly;
       viAlias = true;
       vimAlias = true;
       # withPython3 = true;
@@ -14,11 +14,12 @@
   };
   home = {
     packages = with pkgs; [
+      lua
       lua-language-server
       nodePackages.typescript-language-server
       nodePackages.prettier
       nodePackages.eslint
-      nodePackages.pyright
+      pyright
     ];
   };
   xdg.configFile."nvim" = {
