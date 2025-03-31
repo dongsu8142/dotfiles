@@ -5,6 +5,7 @@
     # tlp.enable = true;
     # auto-cpufreq.enable = true;
     xserver.videoDrivers = [ "nvidia" ];
+    pulseaudio.support32Bit = true;
   };
   hardware = {
     nvidia = {
@@ -24,7 +25,6 @@
         libvdpau-va-gl
       ];
     };
-    pulseaudio.support32Bit = true;
   };
   environment = {
     systemPackages = with pkgs; [

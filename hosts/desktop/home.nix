@@ -21,7 +21,7 @@
       trunk
       ffmpeg
       jetbrains.rust-rover
-      jetbrains.goland
+      jetbrains.idea-ultimate
       zed-editor
     ];
   };

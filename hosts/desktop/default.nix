@@ -86,14 +86,14 @@
     noto-fonts
     noto-fonts-cjk-sans
     nanum
-    (nerdfonts.override { fonts = [ "FiraCode" ]; })
+    nerd-fonts.fira-code
   ];
 
   system = {
     autoUpgrade = {
       channel = "https://nixos.org/channels/nixos-unstable";
     };
-    stateVersion = "23.11";
+    stateVersion = "24.11";
   };
 
   nixpkgs.config.allowUnfree = true;
