@@ -21,6 +21,7 @@ in {
         self.inputs.sops-nix.nixosModules.sops
         self.inputs.home-manager.nixosModules.home-manager
         ../../homelab
+        ../../users/hands8142
         (./. + "/_common/default.nix")
         (./. + "/${name}/configuration.nix")
         (homeManagerCfg true [ ])
