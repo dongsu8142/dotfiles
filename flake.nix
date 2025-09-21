@@ -6,6 +6,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -20,27 +24,30 @@
     };
   };
 
-  outputs =
-    { self, nixpkgs, home-manager, sops-nix, rust-overlay, ... }@inputs: {
-      nixosConfigurations.server = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./configuration.nix
-          sops-nix.nixosModules.sops
-          home-manager.nixosModules.home-manager
-          { nixpkgs.overlays = [ rust-overlay.overlays.default ]; }
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.hands8142.imports = [ ./home.nix ];
-              extraSpecialArgs = { inherit inputs; };
-              backupFileExtension = "backup";
-            };
-          }
-        ];
-      };
+  outputs = inputs@{ self, flake-parts, ... }:
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [ "x86_64-linux" ];
+      imports = [ ./modules/machines/nixos ];
     };
-
+  # { self, nixpkgs, home-manager, sops-nix, rust-overlay, ... }@inputs: {
+  #   nixosConfigurations.server = nixpkgs.lib.nixosSystem {
+  #     system = "x86_64-linux";
+  #     specialArgs = { inherit inputs; };
+  #     modules = [
+  #       ./configuration.nix
+  #       sops-nix.nixosModules.sops
+  #       home-manager.nixosModules.home-manager
+  #       { nixpkgs.overlays = [ rust-overlay.overlays.default ]; }
+  #       {
+  #         home-manager = {
+  #           useGlobalPkgs = true;
+  #           useUserPackages = true;
+  #           users.hands8142.imports = [ ./home.nix ];
+  #           extraSpecialArgs = { inherit inputs; };
+  #           backupFileExtension = "backup";
+  #         };
+  #       }
+  #     ];
+  #   };
+  # };
 }

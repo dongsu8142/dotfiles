@@ -1,16 +1,13 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ ./hardware-configuration.nix ./modules/homelab ./modules/secrets ];
+  imports = [ ./hardware-configuration.nix ./secrets ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.networkmanager.enable =
     true; # Easiest to use and most distros use this by default.
-
-  time.timeZone = "Asia/Seoul";
 
   networking = {
     hostName = "homelab";
@@ -22,40 +19,12 @@
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [ tree ];
     shell = pkgs.fish;
-    hashedPasswordFile = config.sops.secrets.hashed_user_password.path;
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEm+PquO4HuABLPfaS9jwQjTFi7YofRmgitlVKMc5umO dongsu8142@naver.com"
     ];
   };
 
-  programs = {
-    fish.enable = true;
-    nix-ld.enable = true;
-  };
-
-  security = {
-    sudo = {
-      enable = true;
-      wheelNeedsPassword = false;
-    };
-  };
-
-  environment = {
-    shells = with pkgs; [ fish ];
-    systemPackages = with pkgs; [
-      vim
-      wget
-      git
-      nettools
-      unzip
-      # (rust-bin.selectLatestNightlyWith (toolchain:
-      #   toolchain.default.override {
-      #     extensions = [ "rust-src" "rust-analyzer" "rustfmt" "clippy" ];
-      #     targets = [ "wasm32-unknown-unknown" "x86_64-unknown-linux-gnu" ];
-      #   }))
-      age
-    ];
-  };
+  programs = { nix-ld.enable = true; };
 
   services = {
     openssh = {
@@ -89,17 +58,5 @@
       cockpit = { enable = false; };
     };
   };
-
-  nix = {
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 7d";
-    };
-    settings.experimental-features = [ "nix-command" "flakes" ];
-  };
-
-  system.stateVersion = "25.11";
-
 }
 
