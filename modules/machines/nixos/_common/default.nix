@@ -35,6 +35,6 @@
 
   environment = {
     shells = [ pkgs.fish ];
-    systemPackages = with pkgs; [ wget unzip nettools lm_sensors ];
+    systemPackages = with pkgs; [ wget unzip nettools lm_sensors just ];
   };
 }
