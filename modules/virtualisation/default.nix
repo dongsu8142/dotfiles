@@ -1,4 +1,0 @@
-[
-  # ./podman.nix
-  ./docker.nix
-]

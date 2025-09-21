@@ -1,8 +1,0 @@
-{ ... }:
-{
-  programs = {
-    terminator = {
-      enable = true;
-    };
-  };
-}

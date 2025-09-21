@@ -1,3 +1,0 @@
-[
-  ./terminator
-] ++ import ../common

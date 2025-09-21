@@ -1,5 +1,0 @@
-[
-  ./btop
-  ./lazygit
-  ./starship
-]

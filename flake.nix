@@ -1,60 +1,46 @@
 {
-  description = "nixos configuration";
-
+  description = "NixOS";
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    neovim-nightly-overlay = {
-      url = "github:nix-community/neovim-nightly-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    dongsu8142-nur = {
-      url = "github:dongsu8142/nur";
-      inputs.nixpkgs.follows = "nixpkgs";
+    secrets = {
+      url = "git+ssh://git@github.com/dongsu8142/secrets.git";
+      flake = false;
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... }@inputs:
-    let
-      system = "x86_64-linux";
-      user = "hands8142";
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      };
-      lib = nixpkgs.lib;
-      mkSystem = hostname:
-        lib.nixosSystem {
-          inherit system;
-          specialArgs = { inherit inputs; };
-          modules = [
-            ./overlays
-            ./hosts/${hostname}
-            home-manager.nixosModules.home-manager {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                users.${user} = {
-                  imports = [
-                    (import ./hosts/${hostname}/home.nix)
-                  ];
-                };
-                extraSpecialArgs = { inherit inputs; };
-              };
-            }
-          ];
-        };
-    in {
-      nixosConfigurations = {
-        desktop = mkSystem "desktop";
-        server = mkSystem "server";
+  outputs =
+    { self, nixpkgs, home-manager, sops-nix, rust-overlay, ... }@inputs: {
+      nixosConfigurations.server = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./configuration.nix
+          sops-nix.nixosModules.sops
+          home-manager.nixosModules.home-manager
+          { nixpkgs.overlays = [ rust-overlay.overlays.default ]; }
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.hands8142.imports = [ ./home.nix ];
+              extraSpecialArgs = { inherit inputs; };
+              backupFileExtension = "backup";
+            };
+          }
+        ];
       };
     };
+
 }

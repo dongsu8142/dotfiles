@@ -1,6 +1,0 @@
-[
-  ./rust
-  ./python
-  ./java
-  ./node
-]
