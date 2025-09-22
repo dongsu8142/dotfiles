@@ -1,7 +1,7 @@
 { config, ... }:
 
 {
-  imports = [ ./hardware-configuration.nix ./secrets ];
+  imports = [ ./hardware-configuration.nix ./secrets ./disko.nix ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

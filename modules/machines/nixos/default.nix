@@ -19,6 +19,7 @@ in {
       specialArgs = { inherit (self) inputs; };
       modules = [
         self.inputs.sops-nix.nixosModules.sops
+        self.inputs.disko.nixosModules.disko
         self.inputs.home-manager.nixosModules.home-manager
         ../../homelab
         ../../users/hands8142
