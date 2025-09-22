@@ -109,11 +109,11 @@
     "secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1757835277,
-        "narHash": "sha256-EKW/39UFDEgCYiXe+FY3ICZUWbUXY7FFyvujTgeyStI=",
+        "lastModified": 1758522839,
+        "narHash": "sha256-9aRFp1Gok/5Xvk6SBI/eOgy/5a512tT7VlFM4CUxLh4=",
         "ref": "refs/heads/master",
-        "rev": "888e9398b59c9f17ee74c83e3b32d1c66230fa55",
-        "revCount": 7,
+        "rev": "f77fe190d199ee96d6c92e593620b615eb69b27c",
+        "revCount": 9,
         "type": "git",
         "url": "ssh://git@github.com/dongsu8142/secrets.git"
       },
