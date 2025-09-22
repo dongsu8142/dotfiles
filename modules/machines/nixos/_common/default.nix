@@ -14,7 +14,6 @@
     };
   };
 
-  programs.fish.enable = true;
   programs.git.enable = true;
   programs.mosh.enable = true;
   programs.htop.enable = true;
@@ -34,7 +33,7 @@
   };
 
   environment = {
-    shells = [ pkgs.fish ];
+    shells = [ pkgs.nushell ];
     systemPackages = with pkgs; [ wget unzip nettools lm_sensors just ];
   };
 }
