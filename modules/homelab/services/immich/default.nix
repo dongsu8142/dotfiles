@@ -12,7 +12,7 @@ in {
     };
     mediaDir = lib.mkOption {
       type = lib.types.path;
-      default = "${config.homelab.mounts.fast}/Photos/Immich";
+      default = "/mnt/data/Media/Photos";
     };
     url = lib.mkOption {
       type = lib.types.str;
@@ -45,7 +45,7 @@ in {
       port = cfg.port;
       host = "0.0.0.0";
       openFirewall = true;
-      # mediaLocation = "${cfg.mediaDir}";
+      mediaLocation = "${cfg.mediaDir}";
     };
     services.caddy.virtualHosts."${cfg.url}" = {
       useACMEHost = homelab.baseDomain;
