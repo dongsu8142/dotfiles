@@ -25,5 +25,6 @@ in
   };
   imports = [
     ./services
+    ./motd
   ];
 }

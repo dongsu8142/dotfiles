@@ -7,7 +7,7 @@ let
     home-manager = {
       useGlobalPkgs = true;
       useUserPackages = userPackages;
-      users.hands8142.imports = [ ../../../home.nix ] ++ extraImports;
+      users.hands8142.imports = [ ../../../home.nix ../../users/hands8142/dots.nix ] ++ extraImports;
       extraSpecialArgs = { inherit (self) inputs; };
       backupFileExtension = "backup";
     };

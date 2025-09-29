@@ -1,10 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  home.username = "hands8142";
-  home.homeDirectory = "/home/hands8142";
-  home.stateVersion = "25.11";
-  home.packages = with pkgs; [ gcc gh ];
+  home.packages = with pkgs; [ gcc gh lazygit ];
   programs = {
     git = {
       enable = true;

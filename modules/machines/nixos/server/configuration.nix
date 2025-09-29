@@ -34,6 +34,7 @@
     baseDomain = "hdsu.net";
     timeZone = "Asia/Seoul";
     cloudflare.dnsCredentialsFile = config.sops.secrets.adguard_dns_api.path;
+    motd.enable = true;
     services = {
       enable = true;
       homepage = { enable = true; };
