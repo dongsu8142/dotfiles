@@ -19,6 +19,8 @@
     networkmanager.enable = true;
   };
 
+  programs = { nix-ld.enable = true; };
+
   time.hardwareClockInLocalTime = true;
 
   i18n = {

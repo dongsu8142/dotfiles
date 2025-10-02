@@ -11,6 +11,7 @@ in
 
   imports = [
     ../../dots/nushell
+    ../../dots/nvim
   ];
 
   programs.home-manager.enable = true;
