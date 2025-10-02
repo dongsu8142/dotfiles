@@ -23,7 +23,7 @@ in {
         self.inputs.home-manager.nixosModules.home-manager
         ../../homelab
         ../../hardware
-        ../../desktop/cosmic
+        ../../desktop
         ../../users/hands8142
         (./. + "/_common/default.nix")
         (./. + "/${name}/configuration.nix")

@@ -39,6 +39,9 @@
     };
   };
 
-  cosmic.enable = true;
+  desktop = {
+    enable = true;
+    cosmic.enable = true;
+  };
 }
 
