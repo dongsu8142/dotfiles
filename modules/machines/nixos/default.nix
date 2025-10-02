@@ -22,6 +22,8 @@ in {
         self.inputs.disko.nixosModules.disko
         self.inputs.home-manager.nixosModules.home-manager
         ../../homelab
+        ../../hardware
+        ../../desktop/cosmic
         ../../users/hands8142
         (./. + "/_common/default.nix")
         (./. + "/${name}/configuration.nix")
