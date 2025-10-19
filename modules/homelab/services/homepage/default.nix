@@ -2,19 +2,17 @@
   config,
   lib,
   ...
-}:
-let
+}: let
   service = "homepage-dashboard";
   cfg = config.homelab.services.homepage;
   homelab = config.homelab;
-in
-{
+in {
   options.homelab.services.homepage = {
     enable = lib.mkEnableOption {
       description = "Enable ${service}";
     };
     misc = lib.mkOption {
-      default = [ ];
+      default = [];
       type = lib.types.listOf (
         lib.types.attrsOf (
           lib.types.submodule {
@@ -92,84 +90,81 @@ in
         statusStyle = "dot";
         hideVersion = "true";
       };
-      services =
-        let
-          homepageCategories = [
-            "Media"
-            "Services"
-          ];
-          hl = config.homelab.services;
-          homepageServices =
-            x:
-            (lib.attrsets.filterAttrs (
-              _name: value: value ? homepage && value.homepage.category == x
-            ) homelab.services);
-        in
+      services = let
+        homepageCategories = [
+          "Media"
+          "Downloads"
+          "Services"
+        ];
+        hl = config.homelab.services;
+        homepageServices = x: (lib.attrsets.filterAttrs (
+            _name: value: value ? homepage && value.homepage.category == x
+          )
+          homelab.services);
+      in
         lib.lists.forEach homepageCategories (cat: {
           "${cat}" =
             lib.lists.forEach (lib.attrsets.mapAttrsToList (name: _value: name) (homepageServices "${cat}"))
-              (x: {
-                "${hl.${x}.homepage.name}" = {
-                  icon = hl.${x}.homepage.icon;
-                  description = hl.${x}.homepage.description;
-                  href = "https://${hl.${x}.url}";
-                  siteMonitor = "https://${hl.${x}.url}";
-                };
-              });
+            (x: {
+              "${hl.${x}.homepage.name}" = {
+                icon = hl.${x}.homepage.icon;
+                description = hl.${x}.homepage.description;
+                href = "https://${hl.${x}.url}";
+                siteMonitor = "https://${hl.${x}.url}";
+              };
+            });
         })
-        ++ [ { Misc = cfg.misc; } ]
+        ++ [{Misc = cfg.misc;}]
         ++ [
           {
-            Glances =
-              let
-                port = toString config.services.glances.port;
-              in
-              [
-                {
-                  Info = {
-                    widget = {
-                      type = "glances";
-                      url = "http://localhost:${port}";
-                      metric = "info";
-                      chart = false;
-                      version = 4;
-                    };
+            Glances = let
+              port = toString config.services.glances.port;
+            in [
+              {
+                Info = {
+                  widget = {
+                    type = "glances";
+                    url = "http://localhost:${port}";
+                    metric = "info";
+                    chart = false;
+                    version = 4;
                   };
-                }
-                {
-                  "CPU Temp" = {
-                    widget = {
-                      type = "glances";
-                      url = "http://localhost:${port}";
-                      metric = "sensor:Package id 0";
-                      chart = false;
-                      version = 4;
-                    };
+                };
+              }
+              {
+                "CPU Temp" = {
+                  widget = {
+                    type = "glances";
+                    url = "http://localhost:${port}";
+                    metric = "sensor:Package id 0";
+                    chart = false;
+                    version = 4;
                   };
-                }
-                {
-                  Processes = {
-                    widget = {
-                      type = "glances";
-                      url = "http://localhost:${port}";
-                      metric = "process";
-                      chart = false;
-                      version = 4;
-                    };
+                };
+              }
+              {
+                Processes = {
+                  widget = {
+                    type = "glances";
+                    url = "http://localhost:${port}";
+                    metric = "process";
+                    chart = false;
+                    version = 4;
                   };
-                }
-                {
-                  Network = {
-                    widget = {
-                      type = "glances";
-                      url = "http://localhost:${port}";
-                      metric = "network:enp0s20u1u4";
-                      chart = false;
-                      version = 4;
-                    };
+                };
+              }
+              {
+                Network = {
+                  widget = {
+                    type = "glances";
+                    url = "http://localhost:${port}";
+                    metric = "network:enp0s20u1u4";
+                    chart = false;
+                    version = 4;
                   };
-                }
-              ];
+                };
+              }
+            ];
           }
         ];
     };

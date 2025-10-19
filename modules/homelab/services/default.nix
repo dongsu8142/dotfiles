@@ -1,17 +1,22 @@
-{ config, lib, pkgs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   options.homelab.services = {
     enable = lib.mkEnableOption "Settings and services for the homelab";
   };
 
   config = lib.mkIf config.homelab.services.enable {
-    networking.firewall.allowedTCPPorts = [ 80 443 ];
+    networking.firewall.allowedTCPPorts = [80 443];
     security.acme = {
       acceptTerms = true;
       defaults.email = "dongsu8142@naver.com";
       certs.${config.homelab.baseDomain} = {
-        reloadServices = [ "caddy.service" ];
+        reloadServices = ["caddy.service"];
         domain = "${config.homelab.baseDomain}";
-        extraDomainNames = [ "*.${config.homelab.baseDomain}" ];
+        extraDomainNames = ["*.${config.homelab.baseDomain}"];
         dnsProvider = "cloudflare";
         dnsResolver = "1.1.1.1:53";
         dnsPropagationCheck = true;
@@ -57,5 +62,7 @@
     ./cockpit
     ./freshrss
     ./immich
+    ./qbittorrent
+    ./jellyfin
   ];
 }

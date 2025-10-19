@@ -1,20 +1,19 @@
-{ config, ... }:
-
-{
-  imports = [ ./hardware-configuration.nix ./secrets ./disko.nix ];
+{config, ...}: {
+  imports = [./hardware-configuration.nix ./secrets ./disko.nix];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelParams = ["usbcore.autosuspend=-1"];
 
   networking.networkmanager.enable =
     true; # Easiest to use and most distros use this by default.
 
   networking = {
     hostName = "homelab";
-    nameservers = [ "1.1.1.1" "8.8.8.8" ];
+    nameservers = ["1.1.1.1" "8.8.8.8"];
   };
 
-  programs = { nix-ld.enable = true; };
+  programs = {nix-ld.enable = true;};
 
   services = {
     openssh = {
@@ -24,8 +23,13 @@
         PermitRootLogin = "no";
       };
     };
-    logind = { settings.Login.HandleLidSwitch = "ignore"; };
-    tlp.enable = true;
+    logind = {settings.Login.HandleLidSwitch = "ignore";};
+    tlp = {
+      enable = true;
+      settings = {
+        USB_AUTOSUSPEND = 0; # keep mouse awake
+      };
+    };
     auto-cpufreq.enable = true;
   };
 
@@ -37,17 +41,18 @@
     motd.enable = true;
     services = {
       enable = true;
-      homepage = { enable = true; };
-      adguardhome = { enable = true; };
-      uptime-kuma = { enable = true; };
-      vaultwarden = { enable = true; };
-      immich = { enable = true; };
+      homepage = {enable = true;};
+      adguardhome = {enable = true;};
+      uptime-kuma = {enable = true;};
+      vaultwarden = {enable = true;};
+      immich = {enable = true;};
       freshrss = {
         enable = false;
         passwordFile = config.sops.secrets.admin_password.path;
       };
-      cockpit = { enable = false; };
+      cockpit = {enable = false;};
+      qbittorrent = {enable = true;};
+      jellyfin = {enable = true;};
     };
   };
 }
-

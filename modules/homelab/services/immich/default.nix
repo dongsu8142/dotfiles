@@ -1,5 +1,8 @@
-{ config, lib, ... }:
-let
+{
+  config,
+  lib,
+  ...
+}: let
   cfg = config.homelab.services.immich;
   homelab = config.homelab;
 in {
@@ -36,11 +39,10 @@ in {
     };
   };
   config = lib.mkIf cfg.enable {
-    # systemd.tmpfiles.rules =
-    #   [ "d ${cfg.mediaDir} 0775 immich ${homelab.group} - -" ];
-    # users.users.immich.extraGroups = [ "video" "render" ];
+    systemd.tmpfiles.rules = ["d ${cfg.mediaDir} 0775 immich ${homelab.group} - -"];
+    users.users.immich.extraGroups = ["video" "render"];
     services.immich = {
-      # group = homelab.group;
+      group = homelab.group;
       enable = true;
       port = cfg.port;
       host = "0.0.0.0";
@@ -56,5 +58,4 @@ in {
       '';
     };
   };
-
 }
