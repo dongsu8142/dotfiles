@@ -1,13 +1,17 @@
-{ config, pkgs, ... }:
-
-{
-  home.packages = with pkgs; [ gcc gh lazygit ];
+{pkgs, ...}: {
+  home.packages = with pkgs; [gcc gh lazygit];
   programs = {
     git = {
       enable = true;
-      userName = "dongsu8142";
-      userEmail = "dongsu8142@naver.com";
-      extraConfig = { init = { defaultBranch = "main"; }; };
+      settings = {
+        user = {
+          name = "dongsu8142";
+          email = "dongsu8142@naver.com";
+        };
+        init = {
+          defaultBranch = "main";
+        };
+      };
     };
     bash.enable = true;
     neovim = {
