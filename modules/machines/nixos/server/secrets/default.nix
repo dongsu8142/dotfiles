@@ -1,3 +1,6 @@
-{ config, ... }: {
-  sops.secrets.adguard_dns_api = { group = config.services.caddy.group; };
+{config, ...}: {
+  sops.secrets = {
+    adguard_dns_api = {group = config.services.caddy.group;};
+    miniflux_admin_password = {};
+  };
 }

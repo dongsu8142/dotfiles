@@ -60,7 +60,7 @@
     ./uptime-kuma
     ./vaultwarden
     ./cockpit
-    ./freshrss
+    ./miniflux
     ./immich
     ./qbittorrent
     ./jellyfin

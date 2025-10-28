@@ -46,9 +46,9 @@
       uptime-kuma = {enable = true;};
       vaultwarden = {enable = true;};
       immich = {enable = true;};
-      freshrss = {
-        enable = false;
-        passwordFile = config.sops.secrets.admin_password.path;
+      miniflux = {
+        enable = true;
+        adminCredentialsFile = config.sops.secrets.miniflux_admin_password.path;
       };
       cockpit = {enable = false;};
       qbittorrent = {enable = true;};
