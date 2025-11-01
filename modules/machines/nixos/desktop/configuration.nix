@@ -1,7 +1,5 @@
-{ config, ... }:
-
-{
-  imports = [ ./hardware-configuration.nix ./disko.nix ];
+{config, ...}: {
+  imports = [./hardware-configuration.nix ./disko.nix];
 
   boot.loader = {
     efi.canTouchEfiVariables = true;
@@ -19,7 +17,7 @@
     networkmanager.enable = true;
   };
 
-  programs = { nix-ld.enable = true; };
+  programs = {nix-ld.enable = true;};
 
   time.hardwareClockInLocalTime = true;
 
@@ -41,9 +39,10 @@
     };
   };
 
+  nvidia.enable = true;
+
   desktop = {
     enable = true;
     cosmic.enable = true;
   };
 }
-

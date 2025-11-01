@@ -5,6 +5,7 @@
     enable = true;
     settings = {
       vim = {
+        clipboard.enable = true;
         theme = {
           enable = true;
           name = "nord";
@@ -70,12 +71,22 @@
         };
 
         languages = {
+          enableExtraDiagnostics = true;
           enableFormat = true;
           enableTreesitter = true;
 
           nix.enable = true;
-          rust.enable = true;
           go.enable = true;
+          ts = {
+            enable = true;
+            extensions.ts-error-translator.enable = true;
+          };
+          rust = {
+            enable = true;
+            crates = {
+              enable = true;
+            };
+          };
         };
 
         maps.normal = {

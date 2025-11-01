@@ -10,10 +10,11 @@
 
   config = lib.mkIf config.nvidia.enable {
     services = {
-      xserver.videoDrivers = [ "nvidia" ];
+      xserver.videoDrivers = ["nvidia"];
     };
     hardware = {
       nvidia = {
+        open = false;
         modesetting.enable = true;
         powerManagement.enable = true;
       };
